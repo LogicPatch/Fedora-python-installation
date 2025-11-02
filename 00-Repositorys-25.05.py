@@ -59,3 +59,34 @@ if rpmfusionnonfree in ('J', 'j', ''):
         time.sleep(3)
         os.system('sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm')
         os.system('sudo dnf update -y')
+
+
+
+
+# WineHQ Offizielles Repository
+if winehq in ('J', 'j', ''):
+    print()
+    if os.path.isfile('/etc/yum.repos.d/winehq.repo'):
+        print(rot + '>>>>> Das offizielle winehq-Repository wurde bereits hinzugefügt, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Das offizielle winehq-Repository wird dem lokalen Repo hinzugefügt' + reset)
+        # Fedora Version
+#        VERSION = input(yellow + '>>>>> Für welche Fedora-Version soll das Wine-Repositories eingebunden werden (34/35/36)? ' + reset)
+#        os.system('sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/' + VERSION + '/winehq.repo')
+        os.system('sudo dnf config-manager addrepo --from-repofile=https://dl.winehq.org/wine-builds/fedora/$(rpm -E %fedora)/winehq.repo')
+        os.system('sudo dnf update -y')
+
+
+
+
+# NVidia-Repository
+if nvidia in ('J', 'j', ''):
+    print()
+    if os.path.isfile('/etc/yum.repos.d/rpmfusion-nonfree-nvidia-driver.repo'):
+        print(rot + '>>>>> Das NVidia-Repository wurde bereits hinzugefügt, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Das NVidia-Repo wird dem lokalen Repo hinzugefügt' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y fedora-workstation-repositories')
+        os.system('sudo dnf config-manager --set-enabled rpmfusion-nonfree-nvidia-driver')
+        os.system('sudo dnf update -y')
