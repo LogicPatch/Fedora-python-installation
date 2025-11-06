@@ -40,3 +40,28 @@ print(yellow + '>>>>> Die Unterstützung der Grafikeinheit von NVidia/AMD/Intel 
 nvidia = input(cyan + 'Soll die Unterstützung von NVidia-Grafikkarten installiert werden? (J/n): ' + reset)
 intel = input(cyan + 'Soll die Unterstützung von Intel-Grafikeinheiten installiert werden? (J/n): ' + reset)
 # guestadd = # Guest Additions nicht notwendig. Fedora Gäste haben bereits die notwendigen Erweiterungen installiert und am laufen!!!!
+
+
+
+
+# einige grundlegende Systemspezifische-Pakete
+if basic in ('J', 'j', ''):
+    print()
+    print(green + '>>>>> Grundlegende Programme werden installiert.' + reset)
+    time.sleep(3)
+    # [ffmpeg, git, gparted, htop, ImageMagick, ncdu, rsync] Schnon vorinstalliert: efibootmgr
+    os.system('sudo dnf install -y dkms efibootmgr git gparted htop hunspell-de ImageMagick kernel-devel ncdu perl python3-pip rsync zvbi')
+    # Starten von daemons
+    os.system('sudo systemctl enable sshd.service')
+    # Nur mit aktiviertem negativo17-Repo:  libdvdcss 
+    # ausgelassen/unnötig: java-latest-openjdk
+
+
+
+
+# Codecs für Spiel- Bild- und Videoformate installieren             [ffmpeg, gstreamer..., libdvdcss2, libdvdread]
+if codecs in ('J', 'j', ''):
+    print()
+    print(green + 'Codecs für die einzelnen Spiel-, Bild- und Videoformate werden installiert ' + reset)
+    os.system('sudo dnf install -y faad2 ffmpeg-free ffmpegthumbnailer flite gstreamer1-devel.x86_64 gstreamer1-plugins-base.x86_64 gstreamer1-plugins-base.i686 gstreamer1-plugins-good.x86_64 gstreamer1-plugins-good.i686 gstreamer1-plugins-good-extras.i686 gstreamer1-plugin-libav.x86_64 lame libaacs libdvdread opencv opus speex')
+# gstreamer1-devel.i686
