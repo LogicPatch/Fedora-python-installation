@@ -25,7 +25,6 @@ frot='\33[1;31m'        # fettes Rot (Fehler)
 # Probleme bei den gstreamer-Paketen wenn auch gleichzeitig das multimedia-Repo von negative17.org aktiviert ist: gstreamer1-plugins-bad gstreamer1-plugins-bad-freeworld gstreamer-ffmpeg gstreamer1-plugins-ugly
 basic = input(yellow + 'Sollen die Grundlegenden Programme installiert werden (J/n)?: ' + reset)
 codecs = input(yellow + 'Sollen Codecs für Spiel-, Bild- und Videoformate (mkv,mp4 usw.) installiert werden (J/n)?: ' + reset)
-flatpak = input(yellow + 'Soll über Flatpak Pakete installiert werden können (J/n)?: ' + reset)
 vim = input(yellow + 'Soll der Texteditor vim/neovim installiert werden? (J/n): ' + reset)
 visualstudio = input(yellow + 'Soll die Entwicklungs-IDE Visual Studio Code installiert werden? (J/n): ' + reset)
 emacs = input(yellow + 'Soll der Texteditor emacs installiert werden? (J/n): ' + reset)
@@ -44,7 +43,7 @@ intel = input(cyan + 'Soll die Unterstützung von Intel-Grafikeinheiten installi
 
 
 
-# einige grundlegende Systemspezifische-Pakete
+# Basic-System-Packages
 if basic in ('J', 'j', ''):
     print()
     print(green + '>>>>> Grundlegende Programme werden installiert.' + reset)
@@ -65,3 +64,58 @@ if codecs in ('J', 'j', ''):
     print(green + 'Codecs für die einzelnen Spiel-, Bild- und Videoformate werden installiert ' + reset)
     os.system('sudo dnf install -y faad2 ffmpeg-free ffmpegthumbnailer flite gstreamer1-devel.x86_64 gstreamer1-plugins-base.x86_64 gstreamer1-plugins-base.i686 gstreamer1-plugins-good.x86_64 gstreamer1-plugins-good.i686 gstreamer1-plugins-good-extras.i686 gstreamer1-plugin-libav.x86_64 lame libaacs libdvdread opencv opus speex')
 # gstreamer1-devel.i686
+
+
+
+
+# vim/neovim installieren
+if vim in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/vim'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> vim/neovim wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Der Texteditor vim/neovim wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y neovim python3-neovim.noarch vim vim-syntastic vim-syntastic-python vim-jedi')
+
+
+
+
+# Visual Studio Code installieren
+if visualstudio in ('J', 'j', ''):
+    print()
+    fileName=r'/var/lib/flatpak/app/com.visualstudio.code'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Die Entwicklungs-IDE Visual Studio Code wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Die Entwicklungs-IDE Visual Studio Code wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo flatpak install -y com.visualstudio.code')
+
+
+
+
+# emacs installieren
+if emacs in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/emacs'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der Texteditor emacs wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Der Texteditor emacs wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y emacs ripgrep fd-find')
+        
+        # doom-emacs installieren
+        if doom in ('J', 'j', ''):
+                print(green + '>>>>> doom-emacs wird aktiviert.' + reset)
+                fileName = '.emacs.d'
+                if os.path.exists(fileName):
+                        os.system('cd && rm -rf .emacs.d/')
+                        os.system('cd && git clone --depth 1 https://github.com/hlissner/doom-emacs .emacs.d')
+                        print()
+                        print(yellow + '>>>>> Alle Fragen fuer die Installation von doom mit Ja bestätigen: ' + reset)
+                        os.system('~/.emacs.d/bin/doom install')
+                        print(yellow + '>>>>> Der Pfad zu .emacs/bin soll noch den Pfadvariablen hinzugefügt werden.\n Dies geschieht durch Eintragen folgender Zeile entweder in ~/.bashrc oder  ~/.zshrc:\n    export PATH=$HOME/.emacs.d/bin:$PATH ')
+# nicht gefunden   elpa-common
