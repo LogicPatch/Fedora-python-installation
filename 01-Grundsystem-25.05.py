@@ -119,3 +119,36 @@ if emacs in ('J', 'j', ''):
                         os.system('~/.emacs.d/bin/doom install')
                         print(yellow + '>>>>> Der Pfad zu .emacs/bin soll noch den Pfadvariablen hinzugefügt werden.\n Dies geschieht durch Eintragen folgender Zeile entweder in ~/.bashrc oder  ~/.zshrc:\n    export PATH=$HOME/.emacs.d/bin:$PATH ')
 # nicht gefunden   elpa-common
+
+
+
+
+# Basistools für Druckernutzung                [hplip, gutenprint, openprint,  system-config-printer]
+if cups in ('J', 'j', ''):
+    print()
+    print(green + '>>>>> Basistools für die Drucker- Scannernutzung werden installiert.' + reset)
+    time.sleep(3)
+    os.system('sudo dnf install -y hplip hplip-gui sane-airscan system-config-printer xsane')
+# ausgelassen/unnötig:  gutenprint gutenprint-extras gutenprint-plugin gutenprint-cups
+
+
+
+
+# Basistools fuer WLAN                          [wpa-supplicant, wireless-tools]
+if wlan in ('J', 'j', ''):
+    print()
+    print(green + '>>>>> Basistools für das WLAN werden installiert.' + reset)
+    time.sleep(3)
+    os.system('sudo dnf install -y wireless-regdb wpa_supplicant wpa_supplicant-gui')
+
+
+
+
+# Laptop-Nutzung - Akkulaufzeit erhöhen Vorausladen und schnellerer Boot   [zram-generator, powertop, preload, tlp]
+if tlp in ('J', 'j', ''):
+    print()
+    print(green + '>>>>> Notebook-Tools werden installiert.' + reset)
+    time.sleep(3)
+    os.system('sudo dnf install -y powertop tlp zram zram-generator')      # kein preload verfügbar
+    #os.system('sudo systemctl enable acpid.service')
+# ausgelassen/unnötig: acpi acpid
