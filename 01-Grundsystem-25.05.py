@@ -152,3 +152,34 @@ if tlp in ('J', 'j', ''):
     os.system('sudo dnf install -y powertop tlp zram zram-generator')      # kein preload verfügbar
     #os.system('sudo systemctl enable acpid.service')
 # ausgelassen/unnötig: acpi acpid
+
+
+
+
+# Fedora Grafikkartentreiber
+if nvidia in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/nvidia'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Die NVidia-Treiber wurden bereits installiert, mache nichts.' + reset)
+    else:
+#        print(fcyan + 'SecureBoot muss deaktiviert werden. Sie müssen das BIOS/EFI aufrufen, um es zu deaktivieren.' + reset)
+#        time.sleep(5)
+        print(green + '>>>>> Die NVidia-Treiber werden installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y akmod-nvidia kmod-nvidia nvidia-modprobe nvidia-persistenced nvidia-settings nvidia-xconfig xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda xorg-x11-drv-nvidia-cuda-libs xorg-x11-drv-nvidia-cuda-libs xorg-x11-drv-nvidia-devel xorg-x11-drv-nvidia-devel xorg-x11-drv-nvidia-kmodsrc xorg-x11-drv-nvidia-libs xorg-x11-drv-nvidia-libs')
+        print(fcyan + 'Warten Sie nach dem Ende der RPM-Transaktion, bis der kmod erstellt wurde.\nDies kann auf einigen Systemen bis zu 5 Minuten dauern.' + reset)
+        print(yellow + '>>>>> Der Befehl  "modinfo -F version nvidia"  gibt nach einem Reboot, die Version des\nTreibers (z.B. 565.57) aus und nicht modinfo: FEHLER: Modul nvidia nicht gefunden.' + reset)
+        time.sleep(5)
+# Intel
+if intel in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/intel'
+    if os.path.exists(fileName):
+        print(rot + 'Die Unterstützung von Intel-Grafikeinheiten wurde bereits installiert, mache nichts.' + reset)
+        time.sleep(3)
+    else:
+        print(green + '>>>>> Die Unterstützung von Intel-Grafikeinheiten wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y intel-media-driver.x86_64 intel-media-driver.i686 intel-opencl intel-vaapi-driver libva-intel-driver.x86_64 libva-intel-driver.i686 libva-intel-hybrid-driver.x86_64 libva-intel-hybrid-driver.i686 mesa-libGL.x86_64 mesa-libGL.i686 mesa-vdpau-drivers.x86_64 mesa-vdpau-drivers.i686 mesa-vulkan-drivers.x86_64 mesa-vulkan-drivers.i686 ocl-icd.x86_64 ocl-icd.i686 vulkan-loader.x86_64 vulkan-loader.i686 xorg-x11-drv-intel')
+# Virtualbox    # Guest Additions nicht notwendig. Fedora Gäste haben bereits die notwendigen Erweiterungen installiert und am laufen!!!!
