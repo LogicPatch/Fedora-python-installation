@@ -57,3 +57,34 @@ print()
 print(cyan + 'Soll ein Tool für Bildschirmfotos installiert werden und falls ja welches?' + reset)
 screen = input(cyan + ' 1 scrot - Bildschirmfotos über die Kommandozeile\n 2 flameshot - GUI um Fotos zu erstellen und vor dem speichern zu bearbeiten\n 3 deepin-screenshot - Screenshots mit dem Tool von Deepin erstellen und bearbeiten\n 4 Alle genannten Tools für Screenshots installieren\n 5 Kein Tool für Screenshots\n\n 1, 2, 3, 4 oder 5? ' + reset)
 print()
+
+
+
+
+# Komplettinstallation von gnome
+if gnome in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/share/xsessions/gnome.desktop'
+    if os.path.exists(fileName):
+        sessiongnome = input (rot + '>>>>> Es wurde bereits eine gnome-Session gefunden. Soll dennoch die gnome-Komplettinstallation durchgeführt werden? (1/2)\n' + reset + yellow + '>>> 1. Ja, die vorhandene Installation ist fehlerhaft und muss reinstalliert werden.\n>>> 2. Nein, ich überprüfe erst noch die bereits installierte gnome-Session, bevor ich Tools überschreibe. ' + reset)
+        if sessiongnome=='1':
+            print(green + '>>>>> Eine Komplettinstallation von gnome, mit allen Anwendungen wird installiert.' + reset)
+            time.sleep(3)
+            os.system('sudo dnf groupinstall -y workstation-product-environment')
+        else:
+            print(rot + '>>>>> Die vorhandene Installation wird zur Überprüfung beibehalten, mache nichts.' + reset)
+            time.sleep(3)
+    else:
+        print(green + '>>>>> Eine Komplettinstallation von gnome, mit allen Anwendungen wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf groupinstall -y workstation-product-environment')
+
+
+
+
+# Weitere Anwendungen speziell für gnome
+if appsgnome in ('J', 'j', ''):
+    print()
+    print(green + '>>>>> Es werden noch weitere Anwendungen speziell für Gnome installiert.' + reset)
+    time.sleep(3)
+    os.system('sudo dnf install -y gnome-extensions-app gnome-shell-extension-gamemode gnome-shell-extension-pop-shell gnome-shell-extension-user-theme gnome-tweaks transmission-gtk')
