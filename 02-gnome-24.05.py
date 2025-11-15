@@ -88,3 +88,15 @@ if appsgnome in ('J', 'j', ''):
     print(green + '>>>>> Es werden noch weitere Anwendungen speziell für Gnome installiert.' + reset)
     time.sleep(3)
     os.system('sudo dnf install -y gnome-extensions-app gnome-shell-extension-gamemode gnome-shell-extension-pop-shell gnome-shell-extension-user-theme gnome-tweaks transmission-gtk')
+
+
+
+
+# Themes und Styles installieren
+if themes in ('J', 'j', ''):
+    Desktops2505.themes()
+    Desktops2505.icons()
+    Desktops2505.fonts()
+
+# Displaymanager
+Desktops2505.displaymanager(displaymanager)
