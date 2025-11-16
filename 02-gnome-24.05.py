@@ -1,7 +1,7 @@
 import unicodedata
 import os
 import time
-import Desktops2505
+import Desktops2511
 
 
 
@@ -94,9 +94,15 @@ if appsgnome in ('J', 'j', ''):
 
 # Themes und Styles installieren
 if themes in ('J', 'j', ''):
-    Desktops2505.themes()
-    Desktops2505.icons()
-    Desktops2505.fonts()
+    Desktops2511.themes()
+    Desktops2511.icons()
+    Desktops2511.fonts()
 
 # Displaymanager
-Desktops2505.displaymanager(displaymanager)
+Desktops2511.displaymanager(displaymanager)
+
+# Dateibrowser installieren
+Desktops2511.files(files)
+
+# Kalenderapplikation(en) installieren
+Desktops2511.kalender(kalender)

@@ -85,3 +85,61 @@ def displaymanager(displaymanager):
         print(fblue + '>>>>> Will man sddm als Standard setzen, so muss man den anderen Displaymanager zunaechst deaktivieren und sddm anschliessend aktivieren:\nsudo systemctl disable gdm.service/lightdm.service\nsudo systemctl enable sddm.service' + reset)
     else:
         pass
+
+
+
+
+# Dateibrowser installieren
+print()
+def files(files):
+    if files=='1':
+        print()
+        print(green + '>>>>> thunar - Der Dateibrowser des Xfce4-Desktops wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y Thunar tumbler thunar-archive-plugin thunar-media-tags-plugin thunar-volman')
+    elif files=='2':
+        print()
+        print(green + '>>>>> nautlius - Der Dateibrowser des Gnome-Desktop wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y nautilus kde-connect-nautilus nautilus-extensions nautilus-gsconnect sushi nautilus-python')
+    elif files=='3':
+        print()
+        print(green + '>>>>> dolphin - Der Dateibrowser des KDE-Plasma-Desktops wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y dolphin dolphin-plugins')
+    elif files=='4':
+        print()
+        print(green + '>>>>> Es werden zunächst alle Dateibrowser für eine spätere Selektion installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y Thunar tumbler thunar-archive-plugin thunar-media-tags-plugin thunar-volman nautilus kde-connect-nautilus nautilus-extensions nautilus-gsconnect sushi nautilus-python dolphin dolphin-plugins')
+    else:
+        pass
+
+
+
+
+# Kalenderapplikation(en) installieren
+print()
+def kalender(kalender):
+    if kalender=='1':
+        print()
+        print(green + '>>>>> gnome-calendar des Gnome-Desktops wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y gnome-calendar')
+    elif kalender=='2':
+        print()
+        print(green + '>>>>> korganizer von KDE-Plasma wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y korganizer')
+    elif kalender=='3':
+        print()
+        print(green + '>>>>> calindori für Plasma-Mobile wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y calindori')
+    elif kalender=='4':
+        print()
+        print(green + '>>>>> Es werden zunächst alle Kalenderapplikationen für eine spätere Selektion installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y gnome-calendar korganizer calindori')
+    else:
+        pass
