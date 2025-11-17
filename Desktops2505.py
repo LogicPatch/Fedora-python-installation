@@ -143,3 +143,81 @@ def kalender(kalender):
         os.system('sudo dnf install -y gnome-calendar korganizer calindori')
     else:
         pass
+
+
+
+
+# Editoren(en) installieren
+print()
+def editor(editor):
+    if editor=='1':
+        print()
+        print(green + '>>>>> gedit des Gnome-Desktops wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y gedit gedit-plugins-data gedit-plugins')
+    elif editor=='2':
+        print()
+        print(green + '>>>>> kate von KDE-Plasma wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y kate kate-plugins')
+    elif editor=='3':
+        print()
+        print(green + '>>>>> geany - Kann über Plugins erweitert werde.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y geany geany-plugins-* geany-themes')
+    elif editor=='4':
+        print()
+        print(green + '>>>>> elementary-code- Der Editor des Pantheon-Desktops.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y elementary-code')
+    elif editor=='5':
+        print()
+        print(green + '>>>>> Es werden zunächst alle Editorapplikationen für eine spätere Selektion installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y gedit gedit-plugins-data gedit-plugins gedit-latex kate kate-plugins geany geany-plugins-* geany-themes elementary-code')
+    else:
+        pass
+
+
+
+
+# Bildbetrachter installieren
+print()
+def image(image):
+    if image=='1':
+        print()
+        print(green + '>>>>> eog - Der Bildbetrachter des Gnome-Desktops wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y eog eog-plugins')
+    elif image=='2':
+        print()
+        print(green + '>>>>> gwenview - Der Bildbetrachter des KDE-Plasma-Desktop wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y gwenview')
+    elif image=='3':
+        print()
+        print(green + '>>>>> lximage - Der Bildbetrachter des LxQT-Desktops wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y lximage-qt lximage-qt-l10n')
+    elif image=='4':
+        print()
+        print(green + '>>>>> elementary-photos - Der Bildbetrachter des Pantheon-Desktops wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y elementary-photos')
+    elif image=='5':
+        print()
+        print(green + '>>>>> nomacs - Ein schlanker und schneller Bildbetrachter mit vielen Funktionen wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y nomacs nomacs-plugins')
+    elif image=='6':
+        print()
+        print(green + '>>>>> sxiv - Ein schlanker und schneller Bildbetrachter mit vielen Funktionen wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y sxiv')
+    elif image=='7':
+        print()
+        print(green + '>>>>> Es werden zunächst alle Bildbetrachter für eine spätere Selektion installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y eog eog-plugins gwenview lximage-qt lximage-qt-l10n elementary-photos nomacs nomacs-plugins sxiv')
+    else:
+        pass

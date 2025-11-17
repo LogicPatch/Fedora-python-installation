@@ -46,10 +46,10 @@ print(cyan + 'Soll eine Kalenderapplikation installiert werden und falls ja welc
 kalender = input(cyan + ' 1 gnome-calendar des Gnome-Desktops\n 2 korganizer von KDE-Plasma\n 3 deepin-calendar des Deepin-Desktops\n 4 Alle genannten Kalenderapplikation\n 5 Keine Kalenderapplikation\n\n 1, 2, 3, 4 oder 5? ' + reset)
 print()
 print(cyan + 'Soll ein Editor installiert werden und falls ja welcher?' + reset)
-editor = input(cyan + ' 1 gedit des Gnome-Desktops\n 2 kate von KDE-Plasma\n 3 geany - Kann über Plugins erweitert werden\n 4 deepin-editor - Der Editor des Deepin-Desktops\n 5 Alle genannten Editoren installieren\n 6 Keine Editorapplikation\n\n 1, 2, 3, 4, 5 oder 6? ' + reset)
+editor = input(cyan + ' 1 gedit des Gnome-Desktops\n 2 kate von KDE-Plasma\n 3 geany - Kann über Plugins erweitert werden\n 4 elementary-code - Der Editor des Pantheon-Desktops\n 5 Alle genannten Editoren installieren\n 6 Keine Editorapplikation\n\n 1, 2, 3, 4, 5 oder 6? ' + reset)
 print()
 print(cyan + 'Soll ein bestimmter Bildbetrachter installiert werden und falls ja welcher?' + reset)
-image = input(cyan + ' 1 eog der Bildbetrachter des Gnome-Desktops\n 2 gwenview der Bildbetrachter des KDE-Plasma-Desktops\n 3 deepin-image-viewer der Bildbetrachter des Deepin-Desktops\n 4 nomacs - ein schneller und schlanker Bildbetrachter\n 5 sxiv - ein schneller und schlanker Bildbetrachter\n 6 Alle genannten Bildbetrachter installieren\n 7 Keinen Bildbetrachter\n\n 1, 2, 3, 4, 5, 6 oder 7? ' + reset)
+image = input(cyan + ' 1 eog der Bildbetrachter des Gnome-Desktops\n 2 gwenview der Bildbetrachter des KDE-Plasma-Desktops\n 3 lximage - Der Bildbetrachter des LxQT-Desktops\n 4 elementary-photos - Der Bildbetrachter des Pantheon-Desktops\n 5 nomacs - ein schneller und schlanker Bildbetrachter\n 6 sxiv - ein schneller und schlanker Bildbetrachter\n 7 Alle genannten Bildbetrachter installieren\n 8 Keinen Bildbetrachter\n\n 1, 2, 3, 4, 5, 6, 7 oder 8? ' + reset)
 print()
 print(cyan + 'Soll ein bestimmter PDF-Reader installiert werden und falls ja welcher?' + reset)
 pdf = input(cyan + ' 1 evince der PDF-Reader des Gnome-Desktops\n 2 okular der PDF-Reader des KDE-Plasma-Desktops\n 3 Alle genannten PDF-Reader installieren\n 4 Keinen PDF-Reader\n\n 1, 2, 3 oder 4? ' + reset)
@@ -106,3 +106,9 @@ Desktops2511.files(files)
 
 # Kalenderapplikation(en) installieren
 Desktops2511.kalender(kalender)
+
+# Editoren(en) installieren
+Desktops2511.editor(editor)
+
+# Bildbetrachter installieren
+Desktops2511.image(image)
