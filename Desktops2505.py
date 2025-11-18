@@ -221,3 +221,61 @@ def image(image):
         os.system('sudo dnf install -y eog eog-plugins gwenview lximage-qt lximage-qt-l10n elementary-photos nomacs nomacs-plugins sxiv')
     else:
         pass
+
+
+
+
+# PDF-Reader installieren
+print()
+def pdf(pdf):
+    if pdf=='1':
+        print()
+        print(green + '>>>>> evince - Der PDF-Reader des Gnome-Desktops wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y evince')
+    elif pdf=='2':
+        print()
+        print(green + '>>>>> okular - Der PDF-Reader des KDE-Plasma-Desktop wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y okular')
+    elif pdf=='3':
+        print()
+        print(green + '>>>>> cosmic-reader - Der PDF-Reader des Cosmic-Desktop wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y cosmic-reader')
+    elif pdf=='4':
+        print()
+        print(green + '>>>>> Es werden zunächst alle PDF-Reader für eine spätere Selektion installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y evince okular cosmic-reader')
+    else:
+        pass
+
+
+
+
+# Tool für Bildschirmfotos installieren
+print()
+def screen(screen):
+    if screen=='1':
+        print()
+        print(green + '>>>>> flameshot wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y flameshot')
+    elif screen=='2':
+        print()
+        print(green + '>>>>> cosmic-screenshot vom Cosmic-Desktop wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y cosmic-screenshot')
+    elif screen=='3':
+        print()
+        print(green + '>>>>> scrot für die Kommandozeile wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y scrot')
+    elif screen=='4':
+        print()
+        print(green + '>>>>> Für eine spätere Selektion werden zunächst alle Tools für Screenshots installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y flameshot cosmic-screenshot scrot')
+    else:
+        pass
