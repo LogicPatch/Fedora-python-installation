@@ -37,13 +37,13 @@ appsgnome = input(cyan + 'Sollen noch weitere Anwendungen speziell für den Gnom
 themes = input(cyan + 'Sollen weitere Themes und Styles für GTK-basierte Desktops wie Budgie, Gnome oder Mate installiert werden? (J/n): ' + reset)
 print()
 print(cyan + 'Soll ein Displaymanager installiert werden und falls ja welcher Displaymanager soll verwendet werden?' + reset)
-displaymanager = input(cyan + ' 1 LightDM - Den Standarddisplaymanager von xfce, budgie, i3 u.a. verwenden\n 2 GDM     - Den Standard-Displaymanager von Gnome verwenden\n 3 sddm    - Den Simple-Desktop-Display-Manager von KDE-Plasma verwenden\n 4 Kein Displaymanager Installieren bzw. den bereits installierten nutzen\n\n 1, 2, 3 oder 4? ' + reset)
+displaymanager = input(cyan + ' 1 LightDM - Den Standarddisplaymanager von xfce, budgie, i3 u.a. verwenden\n 2 GDM     - Den Standard-Displaymanager von Gnome verwenden\n 3 sddm    - Den Simple-Desktop-Display-Manager von KDE-Plasma verwenden\n 4 cosmic-greeter - Der Standard-Displaymanager von Cosmic verwenden.\n 5 Kein Displaymanager Installieren bzw. den bereits installierten nutzen\n\n 1, 2, 3, 4 oder 5? ' + reset)
 print()
 print(cyan + 'Soll ein bestimmter Dateibrowser installiert werden und falls ja welcher?' + reset)
 files = input(cyan + ' 1 thunar der Dateibrowser des Xfce4-Desktops\n 2 nautlius der Dateibrowser des Gnome-Desktops\n 3 dolphin der Dateibrowser des KDE-Plasma-Desktops\n 4 Alle genannten Dateibrowser installieren\n 5 Keinen Dateibrowser\n\n 1, 2, 3, 4 oder 5? ' + reset)
 print()
 print(cyan + 'Soll eine Kalenderapplikation installiert werden und falls ja welche?' + reset)
-kalender = input(cyan + ' 1 gnome-calendar des Gnome-Desktops\n 2 korganizer von KDE-Plasma\n 3 deepin-calendar des Deepin-Desktops\n 4 Alle genannten Kalenderapplikation\n 5 Keine Kalenderapplikation\n\n 1, 2, 3, 4 oder 5? ' + reset)
+kalender = input(cyan + ' 1 gnome-calendar des Gnome-Desktops\n 2 korganizer von KDE-Plasma\n 3 calindori für Plasma-Mobile wird installiert\n 4 Alle genannten Kalenderapplikation\n 5 Keine Kalenderapplikation\n\n 1, 2, 3, 4 oder 5? ' + reset)
 print()
 print(cyan + 'Soll ein Editor installiert werden und falls ja welcher?' + reset)
 editor = input(cyan + ' 1 gedit des Gnome-Desktops\n 2 kate von KDE-Plasma\n 3 geany - Kann über Plugins erweitert werden\n 4 elementary-code - Der Editor des Pantheon-Desktops\n 5 Alle genannten Editoren installieren\n 6 Keine Editorapplikation\n\n 1, 2, 3, 4, 5 oder 6? ' + reset)
@@ -70,14 +70,14 @@ if gnome in ('J', 'j', ''):
         if sessiongnome=='1':
             print(green + '>>>>> Eine Komplettinstallation von gnome, mit allen Anwendungen wird installiert.' + reset)
             time.sleep(3)
-            os.system('sudo dnf groupinstall -y workstation-product-environment')
+            os.system('sudo dnf group install -y workstation-product-environment')
         else:
             print(rot + '>>>>> Die vorhandene Installation wird zur Überprüfung beibehalten, mache nichts.' + reset)
             time.sleep(3)
     else:
         print(green + '>>>>> Eine Komplettinstallation von gnome, mit allen Anwendungen wird installiert.' + reset)
         time.sleep(3)
-        os.system('sudo dnf groupinstall -y workstation-product-environment')
+        os.system('sudo dnf group install -y workstation-product-environment')
 
 
 

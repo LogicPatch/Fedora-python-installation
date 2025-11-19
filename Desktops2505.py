@@ -47,14 +47,14 @@ def icons():
     # Icons
     print()
     print(green + '>>>>> Weitere Icons werden installiert.' + reset)
-    os.system('sudo dnf install -y adwaita-icon-theme  breeze-icon-theme deepin-icon-theme deepin-wallpapers elementary-icon-theme elementary-xfce-icon-theme gnome-icon-theme papirus-icon-theme')
+    os.system('sudo dnf install -y adwaita-icon-theme  breeze-icon-theme cosmic-icon-theme cosmic-wallpapers deepin-icon-theme deepin-wallpapers elementary-icon-theme elementary-xfce-icon-theme gnome-icon-theme papirus-icon-theme')
     time.sleep(3)
 def fonts():
     # Fonts
     print()
     print(green + '>>>>> Weitere Schriftarten werden installiert.' + reset)
     time.sleep(3)
-    os.system('sudo dnf install -y abattis-cantarell-fonts adobe-source-code-pro-fonts adobe-source-sans-pro-fonts adobe-source-serif-pro-fonts bitstream-vera-fonts-all dejavu-fonts-all fira-code-fonts fontawesome-fonts fontawesome-fonts-web fontawesome5-fonts fontawesome5-fonts-all fontawesome5-brands-fonts fontawesome5-fonts-web gnu-free-fonts-common gnu-free-mono-fonts gnu-free-sans-fonts gnu-free-serif-fonts google-droid-fonts-all mozilla-fira-fonts-common lato-fonts levien-inconsolata-fonts mozilla-fira-mono-fonts mozilla-fira-sans-fonts overpass-fonts overpass-mono-fonts liberation-fonts liberation-mono-fonts liberation-narrow-fonts liberation-sans-fonts liberation-serif-fonts google-roboto-fonts google-roboto-mono-fonts google-roboto-slab-fonts terminus-fonts terminus-fonts-console')
+    os.system('sudo dnf install -y abattis-cantarell-fonts adobe-source-code-pro-fonts adobe-source-sans-pro-fonts adobe-source-serif-pro-fonts bitstream-vera-fonts-all dejavu-fonts-all fira-code-fonts fontawesome-fonts fontawesome-fonts-web fontawesome5-fonts fontawesome5-fonts-all fontawesome5-brands-fonts fontawesome5-fonts-web gnu-free-fonts-common gnu-free-mono-fonts gnu-free-sans-fonts gnu-free-serif-fonts google-droid-fonts-all lato-fonts levien-inconsolata-fonts overpass-fonts overpass-mono-fonts liberation-fonts liberation-mono-fonts liberation-narrow-fonts liberation-sans-fonts liberation-serif-fonts google-roboto-fonts google-roboto-mono-fonts google-roboto-slab-fonts terminus-fonts terminus-fonts-console')
 
 
 
@@ -68,21 +68,29 @@ def displaymanager(displaymanager):
         time.sleep(3)
         os.system('sudo dnf install -y lightdm lightdm-gtk lightdm-gtk-greeter-settings slick-greeter lightdm-settings')
         print()
-        print(fblue + '>>>>> Will man lightdm als Standard setzen, so muss man den anderen Displaymanager zunaechst deaktivieren und lightdm anschliessend aktivieren:\nsudo systemctl disable gdm.service/sddm.service\nsudo systemctl enable lightdm.service' + reset)
+        print(fblue + '>>>>> Will man lightdm als Standard setzen, so muss man den anderen Displaymanager zunaechst deaktivieren und lightdm anschliessend aktivieren:\nsudo systemctl disable gdm.service/sddm.service/cosmic-greeter.service\nsudo systemctl enable lightdm.service' + reset)
     elif displaymanager=='2':
         print()
         print(green + '>>>>> GDM - Der Standard-Displaymanager von Gnome wird installiert.' + reset)
         time.sleep(3)
         os.system('sudo dnf install -y gdm')
         print()
-        print(fblue + '>>>>> Will man gdm als Standard setzen, so muss man den anderen Displaymanager zunaechst deaktivieren und gdm anschliessend aktivieren:\nsudo systemctl disable sddm.service/lightdm.service\nsudo systemctl enable gdm.service' + reset)
+        print(fblue + '>>>>> Will man gdm als Standard setzen, so muss man den anderen Displaymanager zunaechst deaktivieren und gdm anschliessend aktivieren:\nsudo systemctl disable sddm.service/lightdm.service/cosmic-greeter.service\nsudo systemctl enable gdm.service' + reset)
     elif displaymanager=='3':
         print()
         print(green + '>>>>> sddm - Der Simple-Desktop-Display-Manager von KDE-Plasma wird installiert.' + reset)
         time.sleep(3)
         os.system('sudo dnf install -y sddm sddm-kcm sddm-themes sddm-breeze materia-kde-sddm')
         print()
-        print(fblue + '>>>>> Will man sddm als Standard setzen, so muss man den anderen Displaymanager zunaechst deaktivieren und sddm anschliessend aktivieren:\nsudo systemctl disable gdm.service/lightdm.service\nsudo systemctl enable sddm.service' + reset)
+        print(fblue + '>>>>> Will man sddm als Standard setzen, so muss man den anderen Displaymanager zunaechst deaktivieren und sddm anschliessend aktivieren:\nsudo systemctl disable gdm.service/lightdm.service/cosmic-greeter.service\nsudo systemctl enable sddm.service' + reset)
+    elif displaymanager=='4':
+        print()
+        print(green + '>>>>> cosmic-greeter - Der Standard-Displaymanager von Cosmic wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y cosmic-greeter')
+        print()
+        print(fblue + '>>>>> Will man cosmic-greeter als Standard setzen, so muss man den anderen Displaymanager zunaechst deaktivieren und cosmic-greeter anschliessend aktivieren:\nsudo systemctl disable gdm.service/lightdm.service/sddm.service\nsudo systemctl enable cosmic-greeter.service' + reset)
+ 
     else:
         pass
 
@@ -230,9 +238,9 @@ print()
 def pdf(pdf):
     if pdf=='1':
         print()
-        print(green + '>>>>> evince - Der PDF-Reader des Gnome-Desktops wird installiert.' + reset)
+        print(green + '>>>>> papers - Der PDF-Reader des Gnome-Desktops wird installiert.' + reset)
         time.sleep(3)
-        os.system('sudo dnf install -y evince')
+        os.system('sudo dnf install -y papers')
     elif pdf=='2':
         print()
         print(green + '>>>>> okular - Der PDF-Reader des KDE-Plasma-Desktop wird installiert.' + reset)
