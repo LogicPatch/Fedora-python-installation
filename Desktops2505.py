@@ -117,6 +117,11 @@ def files(files):
         os.system('sudo dnf install -y dolphin dolphin-plugins')
     elif files=='4':
         print()
+        print(green + '>>>>> cosmic-files - Der Dateibrowser des Cosmic-Desktops wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y cosmic-files')
+    elif files=='5':
+        print()
         print(green + '>>>>> Es werden zunächst alle Dateibrowser für eine spätere Selektion installiert.' + reset)
         time.sleep(3)
         os.system('sudo dnf install -y Thunar tumbler thunar-archive-plugin thunar-media-tags-plugin thunar-volman nautilus kde-connect-nautilus nautilus-extensions nautilus-gsconnect sushi nautilus-python dolphin dolphin-plugins')
@@ -255,7 +260,7 @@ def pdf(pdf):
         print()
         print(green + '>>>>> Es werden zunächst alle PDF-Reader für eine spätere Selektion installiert.' + reset)
         time.sleep(3)
-        os.system('sudo dnf install -y evince okular cosmic-reader')
+        os.system('sudo dnf install -y evince okular') # cosmic-reader  NOCH nicht vorhanden
     else:
         pass
 
