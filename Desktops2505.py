@@ -124,7 +124,7 @@ def files(files):
         print()
         print(green + '>>>>> Es werden zunächst alle Dateibrowser für eine spätere Selektion installiert.' + reset)
         time.sleep(3)
-        os.system('sudo dnf install -y Thunar tumbler thunar-archive-plugin thunar-media-tags-plugin thunar-volman nautilus kde-connect-nautilus nautilus-extensions nautilus-gsconnect sushi nautilus-python dolphin dolphin-plugins')
+        os.system('sudo dnf install -y Thunar tumbler thunar-archive-plugin thunar-media-tags-plugin thunar-volman nautilus kde-connect-nautilus nautilus-extensions nautilus-gsconnect sushi nautilus-python dolphin dolphin-plugins cosmic-files')
     else:
         pass
 
@@ -185,9 +185,14 @@ def editor(editor):
         os.system('sudo dnf install -y elementary-code')
     elif editor=='5':
         print()
+        print(green + '>>>>> cosmic-edit- Der Editor des Cosmic-Desktops.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y cosmic-edit')
+    elif editor=='6':
+        print()
         print(green + '>>>>> Es werden zunächst alle Editorapplikationen für eine spätere Selektion installiert.' + reset)
         time.sleep(3)
-        os.system('sudo dnf install -y gedit gedit-plugins-data gedit-plugins gedit-latex kate kate-plugins geany geany-plugins-* geany-themes elementary-code')
+        os.system('sudo dnf install -y gedit gedit-plugins-data gedit-plugins gedit-latex kate kate-plugins geany geany-plugins-* geany-themes elementary-code cosmic-edit')
     else:
         pass
 
@@ -260,7 +265,7 @@ def pdf(pdf):
         print()
         print(green + '>>>>> Es werden zunächst alle PDF-Reader für eine spätere Selektion installiert.' + reset)
         time.sleep(3)
-        os.system('sudo dnf install -y evince okular') # cosmic-reader  NOCH nicht vorhanden
+        os.system('sudo dnf install -y papers okular') # cosmic-reader  NOCH nicht vorhanden
     else:
         pass
 
