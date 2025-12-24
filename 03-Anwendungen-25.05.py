@@ -2,9 +2,9 @@
 
 # Inhalt
 # firefox                   (war bereits installiert)
+# brave                     (Flatpak)
 # chromium
-# google-chrome             Über Webseite
-# Opera                     (spyware???)
+# google-chrome             (Flatpak)
 # thunderbird
 # signal-desktop            Flatpak Installation (Über ein externes Repository auch möglich ; Repo musste hinzugefügt werden)
 # telegram
@@ -12,7 +12,7 @@
 # discord
 # Microsoft Teams           Flatpak Installation  (2023.03.20 Nur noch die PWA ; Weboberfläche)
 # Zoom                      Flatpak Installation
-# totem
+# showtime
 # vlc
 # celluloid
 # parole
@@ -76,7 +76,6 @@ print()
 chromium = input(cyan + 'Soll der Webbrowser chromium installiert werden? (J/n): ' + reset)
 brave = input(cyan + 'Soll der Webbrowser brave installiert werden? (J/n): ' + reset)
 chrome= input(cyan + 'Soll der Webbrowser Google-Chrome installiert werden? (J/n): ' + reset)
-#opera= input(cyan + 'Soll der Webbrowser Opera installiert werden? (J/n): ' + reset)
 thunderbird = input(cyan + 'Soll der Mail-Client thunderbird installiert werden? (J/n): ' + reset)
 signal = input(cyan + 'Soll der Messenger signal installiert werden? (J/n): ' + reset)
 telegram = input(cyan + 'Soll der Messenger telegram installiert werden? (J/n): ' + reset)
@@ -84,7 +83,7 @@ viber = input(cyan + 'Soll der Messenger viber installiert werden? (J/n): ' + re
 discord = input(cyan + 'Soll der Messenger discord installiert werden? (J/n): ' + reset)
 #teams = input(cyan + 'Soll der Messenger Microsoft Teams installiert werden? (J/n): ' + reset)
 zoom = input(cyan + 'Soll der Messenger Zoom installiert werden? (J/n): ' + reset)
-totem = input(cyan + 'Soll der Videoplayer totem installiert werden? (J/n): ' + reset)
+showtime = input(cyan + 'Soll der Videoplayer showtime installiert werden? (J/n): ' + reset)
 mpv = input(cyan + 'Soll der Videoplayer mpv installiert werden? (J/n): ' + reset)
 vlc = input(cyan + 'Soll der Videoplayer vlc installiert werden? (J/n): ' + reset)
 celluloid = input(cyan + 'Soll der Videoplayer celluloid installiert werden? (J/n): ' + reset)
@@ -121,3 +120,45 @@ kvm = input(cyan + 'Soll die Virtualisierungsumgebung kvm/qemu/virt-manager inst
 vbox = input(cyan + 'Soll die Virtualisierungsumgebung Virtualbox installiert werden? (J/n): ' + reset)
 texlive = input(cyan + 'Soll das Textsatzsystem latex/texlive installiert werden? (J/n): ' + reset)
 print()
+
+
+
+
+# chromium installieren
+if chromium in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/chromium-browser'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der Webbrowser chromium wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Der Webbrowser chromium wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y chromium fedora-chromium-config')
+
+
+
+
+# brave installieren
+if brave in ('J', 'j', ''):
+    print()
+    fileName=r'/var/lib/flatpak/app/com.brave.Browser'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der Webbrowser brave wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Der Webbrowser brave wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo flatpak install -y com.brave.Browser')
+
+
+
+
+# Google-Chrome
+if chrome in ('J', 'j', ''):
+    print()
+    fileName=r'/var/lib/flatpak/app/com.google.Chrome'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der Webbrowser google-chrome wurde bereits installiert, mache nichts..' + reset)
+    else:
+        print(green + '>>>>> Der Webbrowser google-chrome wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo flatpak install -y flathub com.google.Chrome')
