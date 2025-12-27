@@ -81,7 +81,6 @@ signal = input(cyan + 'Soll der Messenger signal installiert werden? (J/n): ' + 
 telegram = input(cyan + 'Soll der Messenger telegram installiert werden? (J/n): ' + reset)
 viber = input(cyan + 'Soll der Messenger viber installiert werden? (J/n): ' + reset)
 discord = input(cyan + 'Soll der Messenger discord installiert werden? (J/n): ' + reset)
-#teams = input(cyan + 'Soll der Messenger Microsoft Teams installiert werden? (J/n): ' + reset)
 zoom = input(cyan + 'Soll der Messenger Zoom installiert werden? (J/n): ' + reset)
 showtime = input(cyan + 'Soll der Videoplayer showtime installiert werden? (J/n): ' + reset)
 mpv = input(cyan + 'Soll der Videoplayer mpv installiert werden? (J/n): ' + reset)
@@ -162,3 +161,73 @@ if chrome in ('J', 'j', ''):
         print(green + '>>>>> Der Webbrowser google-chrome wird installiert.' + reset)
         time.sleep(3)
         os.system('sudo flatpak install -y flathub com.google.Chrome')
+
+
+
+
+# telegram installieren
+if telegram in ('J', 'j', ''):
+    print()
+    fileName=r'/var/lib/flatpak/app/org.telegram.desktop'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der Messenger telegram wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Der Messenger telegram wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo flatpak install -y org.telegram.desktop')
+
+
+
+
+# signal-desktop
+if signal in ('J', 'j', ''):
+    print()
+    fileName=r'/var/lib/flatpak/app/org.signal.Signal'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der Messenger signal wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Der Messenger signal wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo flatpak install -y org.signal.Signal')
+
+
+
+
+# viber installieren (Flatpak Installation)
+if viber in ('J', 'j', ''):
+    print()
+    fileName=r'/var/lib/flatpak/app/com.viber.Viber'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der Messenger viber wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Der Messenger viber wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo flatpak install -y com.viber.Viber')
+
+
+
+
+# discord installieren (Flatpak Installation)
+if discord in ('J', 'j', ''):
+    print()
+    fileName=r'/var/lib/flatpak/app/com.discordapp.Discord'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der Messenger discord wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Der Messenger discord wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo flatpak install -y com.discordapp.Discord')
+
+
+
+
+# Zoom installieren (Flatpak Installation)
+if zoom in ('J', 'j', ''):
+    print()
+    fileName=r'/var/lib/flatpak/app/us.zoom.Zoom'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der Messenger Zoom wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Der Messenger Zoom wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo flatpak install -y us.zoom.Zoom')
