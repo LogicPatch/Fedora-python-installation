@@ -231,3 +231,73 @@ if zoom in ('J', 'j', ''):
         print(green + '>>>>> Der Messenger Zoom wird installiert.' + reset)
         time.sleep(3)
         os.system('sudo flatpak install -y us.zoom.Zoom')
+
+
+
+
+# showtime-Videoplayer installieren
+if showtime in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/showtime'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der Videoplayer showtime wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Der Videoplayer showtime wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y showtime')
+
+
+
+
+# mpv-Videoplayer installieren
+if mpv in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/mpv'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der Videoplayer mpv wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Der Videoplayer mpv wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y mpv')
+
+
+
+
+# vlc-Videoplayer installieren
+if vlc in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/vlc'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der Videoplayer vlc wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Der Videoplayer vlc wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y vlc vlc-extras')
+# vlc-core
+
+
+
+# celluloid-Videoplayer installieren
+if celluloid in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/celluloid'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der Videoplayer celluloid wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Der Videoplayer celluloid wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y celluloid')
+
+
+
+
+# Parole-Videoplayer installieren
+if parole in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/parole'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der Videoplayer parole wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Der Videoplayer parole wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y parole libxfce4util libxfce4ui')
