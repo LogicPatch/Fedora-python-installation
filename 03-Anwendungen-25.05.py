@@ -17,6 +17,7 @@
 # celluloid
 # parole
 # rhythmbox
+# musicpod
 # soundconverter
 # gpick
 # gcolor3
@@ -88,6 +89,7 @@ vlc = input(cyan + 'Soll der Videoplayer vlc installiert werden? (J/n): ' + rese
 celluloid = input(cyan + 'Soll der Videoplayer celluloid installiert werden? (J/n): ' + reset)
 parole = input(cyan + 'Soll der Videoplayer parole installiert werden? (J/n): ' + reset)
 rhythmbox = input(cyan + 'Soll der Audioplayer rhythmbox installiert werden? (J/n): ' + reset)
+musicpod = input(cyan + 'Soll der Audioplayer musicpod installiert werden? (J/n): ' + reset)
 soundconverter = input(cyan + 'Soll das Programm soundconverter installiert werden? (J/n): ' + reset)
 gpick = input(cyan + 'Soll das Programm gpick installiert werden? (J/n): ' + reset)
 gcolor3 = input(cyan + 'Soll das Programm gcolor3 installiert werden? (J/n): ' + reset)
@@ -301,3 +303,45 @@ if parole in ('J', 'j', ''):
         print(green + '>>>>> Der Videoplayer parole wird installiert.' + reset)
         time.sleep(3)
         os.system('sudo dnf install -y parole libxfce4util libxfce4ui')
+
+
+
+
+# rhythmbox installieren
+if rhythmbox in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/rhythmbox'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der Audioplayer rhythmbox wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Der Audioplayer rhythmbox wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y rhythmbox')
+
+
+
+
+# musicpod installieren
+if musicpod in ('J', 'j', ''):
+    print()
+    fileName=r'/var/lib/flatpak/app/org.feichtmeier.Musicpod'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der Audioplayer musicpod wurde bereits installiert, mache nichts..' + reset)
+    else:
+        print(green + '>>>>> Der Audioplayer musicpod wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo flatpak install -y flathub org.feichtmeier.Musicpod')
+
+
+
+
+# soundconverter installieren
+if soundconverter in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/soundconverter'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Das Programm soundconverter wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Das Programm soundconverter wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y soundconverter')
