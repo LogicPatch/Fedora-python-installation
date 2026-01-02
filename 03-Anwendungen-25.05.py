@@ -19,8 +19,10 @@
 # rhythmbox
 # musicpod
 # soundconverter
+# eyedropper
 # gpick
-# gcolor3
+# gimp
+# krita
 # simplescreenrecorder
 # handbrake
 # kdenlive
@@ -91,9 +93,10 @@ parole = input(cyan + 'Soll der Videoplayer parole installiert werden? (J/n): ' 
 rhythmbox = input(cyan + 'Soll der Audioplayer rhythmbox installiert werden? (J/n): ' + reset)
 musicpod = input(cyan + 'Soll der Audioplayer musicpod installiert werden? (J/n): ' + reset)
 soundconverter = input(cyan + 'Soll das Programm soundconverter installiert werden? (J/n): ' + reset)
+eyedropper = input(cyan + 'Soll das Programm eyedropper installiert werden? (J/n): ' + reset)
 gpick = input(cyan + 'Soll das Programm gpick installiert werden? (J/n): ' + reset)
-gcolor3 = input(cyan + 'Soll das Programm gcolor3 installiert werden? (J/n): ' + reset)
 gimp = input(cyan + 'Soll das Bildbearbeitungsprogramm gimp installiert werden? (J/n): ' + reset)
+krita = input(cyan + 'Soll das Bildbearbeitungsprogramm krita installiert werden? (J/n): ' + reset)
 ssrecorder = input(cyan + 'Soll das Programm simplescreenrecorder installiert werden? (J/n): ' + reset)
 handbrake = input(cyan + 'Soll das Videobearbeitungs-Programm HandBrake installiert werden? (J/n): ' + reset)
 kdenlive = input(cyan + 'Soll das Videoschnitt-Programm kdenlive installiert werden? (J/n): ' + reset)
@@ -345,3 +348,59 @@ if soundconverter in ('J', 'j', ''):
         print(green + '>>>>> Das Programm soundconverter wird installiert.' + reset)
         time.sleep(3)
         os.system('sudo dnf install -y soundconverter')
+
+
+
+
+# eyedropper installieren
+if eyedropper in ('J', 'j', ''):
+    print()
+    fileName=r'/var/lib/flatpak/app/com.github.finefindus.eyedropper'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Das Programm eyedropper wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Das Programm eyedropper wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo flatpak install -y com.github.finefindus.eyedropper')
+
+
+
+
+# gpick installieren
+if gpick in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/gpick'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Das Programm gpick wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Das Programm gpick wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y gpick')
+
+
+
+
+# gimp installieren
+if gimp in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/gimp'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Das Bildbearbeitungsprogramm gimp wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Das Bildbearbeitungsprogramm gimp wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y gimp gimp-help-de')
+
+
+
+
+# krita installieren
+if krita in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/krita'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Das Bildbearbeitungsprogramm krita wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Das Bildbearbeitungsprogramm krita wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y krita')
