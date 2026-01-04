@@ -404,3 +404,59 @@ if krita in ('J', 'j', ''):
         print(green + '>>>>> Das Bildbearbeitungsprogramm krita wird installiert.' + reset)
         time.sleep(3)
         os.system('sudo dnf install -y krita')
+
+
+
+
+# simplescreenrecorder installieren
+if ssrecorder in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/simplescreenrecorder'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Das Programm simplescreenrecorder wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Das Programm simplescreenrecorder wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y simplescreenrecorder')
+
+
+
+
+# HandBrake installieren
+if handbrake in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/ghb'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Das Videobearbeitungs-Programm HandBrake wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Das Videobearbeitungs-Programm HandBrake wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y handbrake handbrake-gui')
+# inkscape frei0r-plugins-opencv blender
+
+
+
+# kdenlive installieren
+if kdenlive in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/kdenlive'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Das Videoschnitt-Programm kdenlive wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Das Videoschnitt-Programm kdenlive wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y kdenlive')
+
+
+
+# Codec-Problem !!!!!
+# openshot installieren
+if openshot in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/openshot-qt'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Das Videoschnitt-Programm openshot wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Das Videoschnitt-Programm openshot wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y openshot openshot-lang')
