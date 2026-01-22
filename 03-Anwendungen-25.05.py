@@ -507,3 +507,47 @@ if lutris in ('J', 'j', ''):
         time.sleep(3)
         os.system('sudo dnf install -y dxvk-native.x86_64 dxvk-native.i686 giflib-devel.x86_64 giflib-devel.i686 libvkd3d.x86_64 libvkd3d.i686 lutris vulkan-loader.x86_64 vulkan-loader.i686 vulkan-loader-devel.x86_64 vulkan-loader-devel.i686 giflib.x86_64 giflib.i686 mpg123.x86_64 v4l-utils.x86_64 ocl-icd.x86_64 ocl-icd.i686 libxslt.x86_64 libxslt.i686 libva.x86_64 libva.i686 gtk3.x86_64 gtk3.i686')
 # gstreamer1-plugins-bad-free-devel.i686 gstreamer1-plugins-bad-free-extras.i686 gstreamer1-libav.i686 gstreamer1-plugins-bad-freeworld.i686
+
+
+
+
+# rustdesk installieren (Flatpak Installation)
+if anydesk in ('J', 'j', ''):
+    print()
+    fileName=r'/var/lib/flatpak/app/com.rustdesk.RustDesk'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Die Remotesoftware rustdesk wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Die Remotesoftware rustdesk wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo flatpak install -y com.rustdesk.RustDesk')
+
+
+
+
+# anydesk installieren (Flatpak Installation)
+if anydesk in ('J', 'j', ''):
+    print()
+    fileName=r'/var/lib/flatpak/app/com.anydesk.Anydesk'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Die Remotesoftware anydesk wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Die Remotesoftware anydesk wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo flatpak install -y com.anydesk.Anydesk')
+
+
+
+
+# teamviewer über die Webseite
+if teamviewer in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/teamviewer'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Die Remotesoftware teamviewer für den privaten Gebrauch wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Die Remotesoftware teamviewer für den privaten Gebrauch wird installiert.' + reset)
+        time.sleep(3)
+        os.system('wget -q https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm')
+        os.system('sudo dnf install -y teamviewer*.rpm')
+        os.system('rm teamviewer*.rpm')
