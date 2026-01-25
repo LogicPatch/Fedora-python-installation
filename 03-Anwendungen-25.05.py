@@ -34,6 +34,7 @@
 # anydesk                   Flatpak Installation
 # teamviewer                Über Webseite
 # ranger
+# yazi                      (Flatpak)
 # zsh
 # ghostty
 # kitty
@@ -108,6 +109,7 @@ rustdesk = input(cyan + 'Soll die Remotesoftware rustdesk installiert werden? (J
 anydesk = input(cyan + 'Soll die Remotesoftware anydesk installiert werden? (J/n): ' + reset)
 teamviewer = input(cyan + 'Soll die Remotesoftware teamviewer für den privaten Gebrauch installiert werden? (J/n): ' + reset)
 ranger = input(cyan + 'Soll der Terminal-Dateimanager ranger installiert werden? (J/n): ' + reset)
+yazi = input(cyan + 'Soll der Terminal-Dateimanager yazi installiert werden? (J/n): ' + reset)
 zsh = input(cyan + 'Soll die Shell zsh installiert werden? (J/n): ' + reset)
 urxvt = input(cyan + 'Soll das Terminal urxvt installiert werden? (J/n): ' + reset)
 tilix = input(cyan + 'Soll das Terminal tilix installiert werden? (J/n): ' + reset)
@@ -551,3 +553,33 @@ if teamviewer in ('J', 'j', ''):
         os.system('wget -q https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm')
         os.system('sudo dnf install -y teamviewer*.rpm')
         os.system('rm teamviewer*.rpm')
+
+
+
+
+# ranger installieren
+if ranger in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/ranger'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der Terminal-Dateimanager ranger wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Der Terminal-Dateimanager ranger wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y ranger highlight atool w3m poppler mediainfo xfce4-terminal')
+        print(yellow + '>>>>> Für die Konfiguration von Ranger siehe zim-Wiki Dateimanager.ranger' + reset)
+        time.sleep(3)
+
+
+
+
+# yazi installieren (Flatpak Installation)
+if yazi in ('J', 'j', ''):
+    print()
+    fileName=r'/var/lib/flatpak/app/io.github.sxyazi.yazi'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der Terminal-Dateimanager yazi wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Der Terminal-Dateimanager yazi wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo flatpak install -y io.github.sxyazi.yazi')
