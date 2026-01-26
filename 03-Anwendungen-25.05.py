@@ -111,10 +111,10 @@ teamviewer = input(cyan + 'Soll die Remotesoftware teamviewer für den privaten 
 ranger = input(cyan + 'Soll der Terminal-Dateimanager ranger installiert werden? (J/n): ' + reset)
 yazi = input(cyan + 'Soll der Terminal-Dateimanager yazi installiert werden? (J/n): ' + reset)
 zsh = input(cyan + 'Soll die Shell zsh installiert werden? (J/n): ' + reset)
-urxvt = input(cyan + 'Soll das Terminal urxvt installiert werden? (J/n): ' + reset)
-tilix = input(cyan + 'Soll das Terminal tilix installiert werden? (J/n): ' + reset)
-kitty = input(cyan + 'Soll das Terminal kitty installiert werden? (J/n): ' + reset)
 ghostty = input(cyan + 'Soll das Terminal ghostty installiert werden? (J/n): ' + reset)
+kitty = input(cyan + 'Soll das Terminal kitty installiert werden? (J/n): ' + reset)
+tilix = input(cyan + 'Soll das Terminal tilix installiert werden? (J/n): ' + reset)
+urxvt = input(cyan + 'Soll das Terminal urxvt installiert werden? (J/n): ' + reset)
 conky = input(cyan + 'Soll der Systemmonitor conky installiert werden? (J/n): ' + reset)
 zim = input(cyan + 'Soll das Desktop-Wiki zim installiert werden? (J/n): ' + reset)
 xpad = input(cyan + 'Soll die Notizzettel-App xpad installiert werden? (J/n): ' + reset)
@@ -583,3 +583,85 @@ if yazi in ('J', 'j', ''):
         print(green + '>>>>> Der Terminal-Dateimanager yazi wird installiert.' + reset)
         time.sleep(3)
         os.system('sudo flatpak install -y io.github.sxyazi.yazi')
+
+
+
+
+# zsh installieren
+if zsh in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/zsh'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Die Shell zsh wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Die Shell zsh wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y zsh zsh-syntax-highlighting zsh-autosuggestions')
+
+        # Variable uzsh wird für die Anpassung des Themes benötigt
+        uzsh = input(fcyan + 'In welchem /home-Verzeichnis soll das oh-my-zsh git-Verzeichnis angelegt werden? Bitte einen Benutzernamen nennen! ' + reset)
+        os.system('cd && sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"')
+        #os.system('git clone git://github.com/robbyrussell/oh-my-zsh.git /home/' + uzsh + '/.oh-my-zsh')
+        #os.system('chown -R ' + uzsh + ':users /home/' + uzsh + '/.oh-my-zsh')
+        # Theme 'fino' in der Datei .zshrc aktivieren
+        os.system("sed -i 's/ZSH_THEME=.*/ZSH_THEME=\"fino\"/g' /home/" + uzsh + "/.zshrc")
+        print(yellow + 'Um die Login-Shell auf zsh zu ändern nutzt man als NORMALER Benutzer den Befehl:    $ chsh -s /bin/zsh    ' + reset)
+
+
+
+
+# ghostty installieren
+if ghostty in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/ghostty'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Das Terminal ghostty wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Das Terminal ghostty wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf copr enable scottames/ghostty')
+        os.system('sudo dnf install -y ghostty')
+
+
+
+
+# kitty installieren
+if kitty in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/kitty'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Das Terminal kitty wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Das Terminal kitty wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y kitty')
+
+
+
+
+# tilix installieren
+if tilix in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/tilix'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Das Terminal tilix wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Das Terminal tilix wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y tilix tilix-nautilus')
+
+
+
+
+# urxvt installieren
+if urxvt in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/urxvt'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Das Terminal urxvt wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Das Terminal urxvt wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y rxvt-unicode xclip')
+        print(yellow + '>>>>> Zum konfigurieren benötigt man eine ~/.Xresources oder ~/.Xdefaults  Datei.\n    Nach ändern dieser Datei muss man ein $ xrdb -merge ~/.Xresources ausführen:' + reset)
+        time.sleep(3)
