@@ -665,3 +665,45 @@ if urxvt in ('J', 'j', ''):
         os.system('sudo dnf install -y rxvt-unicode xclip')
         print(yellow + '>>>>> Zum konfigurieren benötigt man eine ~/.Xresources oder ~/.Xdefaults  Datei.\n    Nach ändern dieser Datei muss man ein $ xrdb -merge ~/.Xresources ausführen:' + reset)
         time.sleep(3)
+
+
+
+
+# conky installieren
+if conky in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/conky'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der Systemmonitor conky wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Der Systemmonitor conky wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y conky terminus-fonts terminus-fonts-console lm_sensors')
+
+
+
+
+# Zim-Desktop Wiki installieren
+if zim in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/zim'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Das Desktop-Wiki zim wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Das Desktop-Wiki zim wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y Zim')
+
+
+
+
+# Notizzettel-App xpad installieren
+if xpad in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/xpad'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Die Notizzettel-App xpad wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Die Notizzettel-App xpad wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y xpad')
