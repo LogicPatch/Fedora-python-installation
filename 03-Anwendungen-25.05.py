@@ -707,3 +707,31 @@ if xpad in ('J', 'j', ''):
         print(green + '>>>>> Die Notizzettel-App xpad wird installiert.' + reset)
         time.sleep(3)
         os.system('sudo dnf install -y xpad')
+
+
+
+
+# keepassxc installieren
+if keepassxc in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/keepassxc'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der Passwortmanager keepassxc wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Der Passwortmanager keepassxc wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y keepassxc')
+
+
+
+
+# gnome-passwordsafe (secrets) installieren
+if gsafe in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/secrets'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der Passwortmanager gnome-passwordsafe wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Der Passwortmanager gnome-passwordsafe wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y secrets')
