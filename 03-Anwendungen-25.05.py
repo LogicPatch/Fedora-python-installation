@@ -735,3 +735,33 @@ if gsafe in ('J', 'j', ''):
         print(green + '>>>>> Der Passwortmanager gnome-passwordsafe wird installiert.' + reset)
         time.sleep(3)
         os.system('sudo dnf install -y secrets')
+
+
+
+
+# pycharm Community-IDE installieren (Flatpak Installation)
+if pycharm in ('J', 'j', ''):
+    print()
+    fileName=r'/var/lib/flatpak/app/com.jetbrains.PyCharm-Community'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Die Community-Version der Python-IDE pycharm wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Die Community-Version der Python-IDE pycharm wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo flatpak install -y com.jetbrains.PyCharm-Community')
+
+
+
+
+# Sublime-Text IDE installieren
+if sublime in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/subl'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Die IDE sublime-text wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Die IDE sublime-text wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg')
+        os.system('sudo dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo')
+        os.system('sudo dnf install -y sublime-text')
