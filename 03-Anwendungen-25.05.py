@@ -47,6 +47,7 @@
 # gnome-passwordsafe        (Bei Fedora unter secrets bekannt)
 # pycharm Community IDE     (Flatpak Installation)
 # Sublime Text IDE
+# weechat
 # KVM
 # virtualbox
 # texlive/latex
@@ -122,6 +123,7 @@ keepassxc = input(cyan + 'Soll der Passwortmanager keepassxc installiert werden?
 gsafe = input(cyan + 'Soll der Passwortmanager gnome-passwortsafe installiert werden? (J/n): ' + reset)
 pycharm = input(cyan + 'Soll die Community-Version der Python-IDE pycharm installiert werden? (J/n): ' + reset)
 sublime = input(cyan + 'Soll die IDE sublime-text installiert werden? (J/n): ' + reset)
+weechat = input(cyan + 'Soll der IRC-Chatclient weechat installiert werden? (J/n): ' + reset)
 kvm = input(cyan + 'Soll die Virtualisierungsumgebung kvm/qemu/virt-manager installiert werden? (J/n): ' + reset)
 vbox = input(cyan + 'Soll die Virtualisierungsumgebung Virtualbox installiert werden? (J/n): ' + reset)
 texlive = input(cyan + 'Soll das Textsatzsystem latex/texlive installiert werden? (J/n): ' + reset)
@@ -765,3 +767,87 @@ if sublime in ('J', 'j', ''):
         os.system('sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg')
         os.system('sudo dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo')
         os.system('sudo dnf install -y sublime-text')
+
+
+
+
+# weechat-IRC-Client installieren
+if weechat in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/weechat'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der IRC-Client weechat wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Der IRC-Client weechat wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y weechat weechat-scripts')
+
+
+
+
+# kvm/qemu/virt-manager installieren
+if kvm in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/virt-manager'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Die Virtualisierungsumgebung kvm/qemu/virt-manager wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Die Virtualisierungsumgebung kvm/qemu/virt-manager wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y @virtualization')
+
+
+
+
+# VirtualBox installieren
+if vbox in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/virtualbox'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Die Virtualisierungsumgebung Virtualbox wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Die Virtualisierungsumgebung Virtualbox wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers kernel-devel dkms VirtualBox virtualbox-guest-additions')
+        uvbox = input(yellow + '>>> Welcher Benutzername soll der Gruppe vboxusers hinzugefügt werden? ' + reset)
+        os.system('sudo usermod -aG vboxusers ' + uvbox)
+        print(yellow + '>>>>> Jetzt noch ein Reboot durchführen' + reset)
+        time.sleep(3)
+# Seit 2023.01.01 nicht mehr nötig
+# VirtualBox installieren (Über Webseite    ;    Kein Repo notwendig)
+#vbox = input(blue + 'Soll Virtualbox jetzt installiert werden? (Y/n): ' + reset)
+#if vbox=='N' or vbox=='n':
+#    print(rot + 'Virtualbox wird nicht installiert.' + reset)
+#    print()
+#    time.sleep(3)
+#else:
+#    fileName=r'/usr/bin/virtualbox'
+#    if os.path.exists(fileName):
+#        print(rot + 'Virtualbox wurde bereits installiert, mache nichts.' + reset)
+#        time.sleep(3)
+#        print()
+#    else:
+#        print(green + 'Virtualbox wird installiert.' + reset)
+#        time.sleep(3)
+#        os.system('wget https://download.virtualbox.org/virtualbox/' + VBOXVER + '/VirtualBox-' + VBOXDET + '-Linux_amd64.run')
+#        os.system('chmod 744 VirtualBox*-Linux_amd64.run')
+#        os.system('./VirtualBox*-Linux_amd64.run')
+#        os.system('rm VirtualBox*-Linux_amd64.run*')
+#        os.system('sudo usermod -aG vboxusers ' + USER)
+#        print(yellow + '>>> Jetzt noch ein Reboot durchfuehren' + reset)
+#        time.sleep(3)
+#        print()
+
+
+
+
+# texlive installieren
+if texlive in ('J', 'j', ''):
+    print()
+    fileName=r'/usr/bin/latex'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Das Textsatzsystem latex/texlive wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Das Textsatzsystem latex/texlive wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo dnf install -y texlive-scheme-full fontforge openjade psutils-perl texlive texlive-collection-omega texlive-collection-science texlive-fragmaster texlive-gnu-freefont texlive-HA-prosper texlive-koma-moderncvclassic texlive-lacheck texlive-latexdiff texlive-lcdftypetools texmaker texstudio un-core-*-fonts* un-extra-*-fonts*')
