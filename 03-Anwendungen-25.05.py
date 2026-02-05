@@ -13,6 +13,7 @@
 # Microsoft Teams           Flatpak Installation  (2023.03.20 Nur noch die PWA ; Weboberfläche)
 # Zoom                      Flatpak Installation
 # showtime
+# mpv
 # vlc
 # celluloid
 # parole
@@ -55,6 +56,8 @@
 import unicodedata
 import os
 import time
+import getpass
+
 
 # Farbige print-Ausgaben
 reset='\33[0m'          # Keine Farbe. (Farbe zurücksetzen)
@@ -174,16 +177,16 @@ if chrome in ('J', 'j', ''):
 
 
 
-# telegram installieren
-if telegram in ('J', 'j', ''):
+# thunderbird installieren
+if thunderbird in ('J', 'j', ''):
     print()
-    fileName=r'/var/lib/flatpak/app/org.telegram.desktop'
+    fileName=r'/usr/bin/thunderbird'
     if os.path.exists(fileName):
-        print(rot + '>>>>> Der Messenger telegram wurde bereits installiert, mache nichts.' + reset)
+        print(rot + '>>>>> Der Mail-Client thunderbird wurde bereits installiert, mache nichts.' + reset)
     else:
-        print(green + '>>>>> Der Messenger telegram wird installiert.' + reset)
+        print(green + '>>>>> Der Mail-Client thunderbird wird installiert.' + reset)
         time.sleep(3)
-        os.system('sudo flatpak install -y org.telegram.desktop')
+        os.system('sudo dnf install -y thunderbird')
 
 
 
@@ -198,6 +201,20 @@ if signal in ('J', 'j', ''):
         print(green + '>>>>> Der Messenger signal wird installiert.' + reset)
         time.sleep(3)
         os.system('sudo flatpak install -y org.signal.Signal')
+
+
+
+
+# telegram installieren
+if telegram in ('J', 'j', ''):
+    print()
+    fileName=r'/var/lib/flatpak/app/org.telegram.desktop'
+    if os.path.exists(fileName):
+        print(rot + '>>>>> Der Messenger telegram wurde bereits installiert, mache nichts.' + reset)
+    else:
+        print(green + '>>>>> Der Messenger telegram wird installiert.' + reset)
+        time.sleep(3)
+        os.system('sudo flatpak install -y org.telegram.desktop')
 
 
 
@@ -281,8 +298,8 @@ if vlc in ('J', 'j', ''):
     else:
         print(green + '>>>>> Der Videoplayer vlc wird installiert.' + reset)
         time.sleep(3)
-        os.system('sudo dnf install -y vlc vlc-extras')
-# vlc-core
+        os.system('sudo dnf install -y vlc vlc-plugins-all')
+# vlc-extras
 
 
 
@@ -477,10 +494,10 @@ if wine in ('J', 'j', ''):
     else:
         print(green + '>>>>> Die Emulatoren wine und gamehub werden installiert.' + reset)
         time.sleep(3)
-        os.system('sudo dnf groupinstall -y "C Development Tools and Libraries"')
-        os.system('sudo dnf groupinstall -y "Development Tools"')
-        os.system('sudo dnf install -y alsa-plugins-pulseaudio.i686 cups-devel.x86_64 cups-devel.i686 glibc-devel.i686 glibc-devel libgcc.i686 libX11-devel.x86_64 libX11-devel.i686 freetype.i686 freetype.x86_64 freetype-devel.x86_64 freetype-devel.i686 libXcursor-devel.x86_64 libXcursor-devel.i686 libXi-devel.x86_64 libXi-devel.i686 libXext-devel.x86_64 libXext-devel.i686 libXxf86vm.x86_64 libXxf86vm.i686 libXxf86vm-devel.x86_64 libXxf86vm-devel.i686 libXrandr-devel.x86_64 libXrandr-devel.i686 libXinerama-devel.x86_64 libXinerama-devel.i686 mesa-libGLU-devel.i686 mesa-libOSMesa-devel.x86_64 mesa-libOSMesa-devel.i686 libXrender-devel.x86_64 libXrender-devel.i686 libpcap-devel.x86_64 libpcap-devel.i686 ncurses-devel.x86_64 ncurses-devel.i686 libzip-devel.i686 lcms2-devel.i686 zlib.x86_64 zlib.i686 zlib-devel.i686 libv4l-devel.x86_64 libv4l-devel.i686 libgphoto2-devel.x86_64 libgphoto2-devel.i686 libxml2-devel.i686 openldap.i686 openldap-devel.x86_64 openldap-devel.i686 libxslt-devel.x86_64 libxslt-devel.i686 gnutls-devel.x86_64 gnutls-devel.i686 libpng.x86_64 libpng.i686 libpng-devel.x86_64 libpng-devel.i686 libpng12-devel.x86_64 libpng12-devel.i686 flac-libs.i686 json-c-devel.x86_64 json-c-devel.i686 json-c.i686 libICE-devel.x86_64 libICE-devel.i686 libICE.i686 libSM.i686 libSM-devel.x86_64 libSM-devel.i686 libXtst-devel.x86_64 libXtst-devel.i686 libXtst.i686 libasyncns.i686 libedit-devel.x86_64 libedit-devel.i686 libedit.i686 liberation-narrow-fonts.noarch libieee1284.i686 libogg.i686 libsndfile.i686 libuuid.i686 libva.i686 libvorbis.i686 libwayland-client.i686 libwayland-server.i686 llvm-libs.i686 llvm15.i686 mesa-dri-drivers.i686 mesa-filesystem.i686 mesa-libEGL-devel.x86_64 mesa-libEGL-devel.i686 mesa-libEGL.i686 mesa-libgbm-devel.x86_64 mesa-libgbm-devel.i686 mesa-libgbm.i686 nss-mdns.i686 ocl-icd.i686 ocl-icd-devel.x86_64 ocl-icd-devel.i686 pulseaudio-libs.i686 sane-backends-devel.x86_64 sane-backends-devel.i686 sane-backends-libs.i686 tcp_wrappers-libs.i686 unixODBC.i686 samba-common-tools.x86_64 samba-libs.x86_64 samba-winbind.x86_64 samba-winbind-clients.x86_64 samba-winbind-modules.x86_64 mesa-libGL-devel.x86_64 mesa-libGL-devel.i686 fontconfig-devel.x86_64 fontconfig-devel.i686 libXcomposite-devel.x86_64 libXcomposite-devel.i686 libtiff-devel.i686 openal-soft-devel.x86_64 openal-soft-devel.i686 mesa-libOpenCL-devel.i686 alsa-lib-devel.i686 gsm-devel.x86_64 gsm-devel.i686 libjpeg-turbo-devel.x86_64 libjpeg-turbo-devel.i686 pulseaudio-libs-devel.i686 pulseaudio-libs-devel gtk3-devel.x86_64 gtk3-devel.i686 libattr.i686 libattr-devel.x86_64 libattr-devel.i686 libva-devel.x86_64 libva-devel.i686 libexif-devel.x86_64 libexif-devel.i686 libexif.i686 glib2-devel.i686 mpg123-devel.i686 mpg123-devel.x86_64 libcom_err-devel.i686 libcom_err-devel.x86_64 libFAudio-devel.i686 libFAudio-devel.x86_64')
-        os.system('sudo dnf install -y winehq-staging gamehub')
+        os.system('sudo dnf group install -y c-development')
+        os.system('sudo dnf group install -y development-tools')
+        os.system('sudo dnf install -y alsa-plugins-pulseaudio.i686 cups-devel.x86_64 cups-devel.i686 glibc-devel.i686 glibc-devel libgcc.i686 libX11-devel.x86_64 libX11-devel.i686 freetype.i686 freetype.x86_64 freetype-devel.x86_64 freetype-devel.i686 libXcursor-devel.x86_64 libXcursor-devel.i686 libXi-devel.x86_64 libXi-devel.i686 libXext-devel.x86_64 libXext-devel.i686 libXxf86vm.x86_64 libXxf86vm.i686 libXxf86vm-devel.x86_64 libXxf86vm-devel.i686 libXrandr-devel.x86_64 libXrandr-devel.i686 libXinerama-devel.x86_64 libXinerama-devel.i686 mesa-libGLU-devel.i686 mesa-compat-libOSMesa-devel.x86_64 mesa-compat-libOSMesa-devel.i686 libXrender-devel.x86_64 libXrender-devel.i686 libpcap-devel.x86_64 libpcap-devel.i686 ncurses-devel.x86_64 ncurses-devel.i686 libzip-devel.i686 lcms2-devel.i686 libv4l-devel.x86_64 libv4l-devel.i686 libgphoto2-devel.x86_64 libgphoto2-devel.i686 libxml2-devel.i686 openldap.i686 openldap-devel.x86_64 openldap-devel.i686 libxslt-devel.x86_64 libxslt-devel.i686 gnutls-devel.x86_64 gnutls-devel.i686 libpng.x86_64 libpng.i686 libpng-devel.x86_64 libpng-devel.i686 libpng12-devel.x86_64 libpng12-devel.i686 flac-libs.i686 json-c-devel.x86_64 json-c-devel.i686 json-c.i686 libICE-devel.x86_64 libICE-devel.i686 libICE.i686 libSM.i686 libSM-devel.x86_64 libSM-devel.i686 libXtst-devel.x86_64 libXtst-devel.i686 libXtst.i686 libasyncns.i686 libedit-devel.x86_64 libedit-devel.i686 libedit.i686 liberation-narrow-fonts.noarch libieee1284.i686 libogg.i686 libsndfile.i686 libuuid.i686 libva.i686 libvorbis.i686 libwayland-client.i686 libwayland-server.i686 llvm-libs.i686 llvm15.i686 mesa-dri-drivers.i686 mesa-filesystem.i686 mesa-libEGL-devel.x86_64 mesa-libEGL-devel.i686 mesa-libEGL.i686 mesa-libgbm-devel.x86_64 mesa-libgbm-devel.i686 mesa-libgbm.i686 nss-mdns.i686 ocl-icd.i686 ocl-icd-devel.x86_64 ocl-icd-devel.i686 pulseaudio-libs.i686 sane-backends-devel.x86_64 sane-backends-devel.i686 sane-backends-libs.i686 tcp_wrappers-libs.i686 unixODBC.i686 samba-common-tools.x86_64 samba-libs.x86_64 samba-winbind.x86_64 samba-winbind-clients.x86_64 samba-winbind-modules.x86_64 mesa-libGL-devel.x86_64 mesa-libGL-devel.i686 fontconfig-devel.x86_64 fontconfig-devel.i686 libXcomposite-devel.x86_64 libXcomposite-devel.i686 libtiff-devel.i686 openal-soft-devel.x86_64 openal-soft-devel.i686 mesa-libOpenCL-devel.i686 alsa-lib-devel.i686 gsm-devel.x86_64 gsm-devel.i686 libjpeg-turbo-devel.x86_64 libjpeg-turbo-devel.i686 pulseaudio-libs-devel.i686 pulseaudio-libs-devel gtk3-devel.x86_64 gtk3-devel.i686 libattr.i686 libattr-devel.x86_64 libattr-devel.i686 libva-devel.x86_64 libva-devel.i686 libexif-devel.x86_64 libexif-devel.i686 libexif.i686 mpg123-devel.i686 mpg123-devel.x86_64 libcom_err-devel.i686 libcom_err-devel.x86_64 libFAudio-devel.i686 libFAudio-devel.x86_64 zlib-ng.x86_64 zlib-ng.i686 zlib-ng-devel.x86_64 zlib-ng-devel.i686')
+        os.system('sudo dnf install -y winehq-staging')
 
 
 
@@ -601,7 +618,8 @@ if zsh in ('J', 'j', ''):
         os.system('sudo dnf install -y zsh zsh-syntax-highlighting zsh-autosuggestions')
 
         # Variable uzsh wird für die Anpassung des Themes benötigt
-        uzsh = input(fcyan + 'In welchem /home-Verzeichnis soll das oh-my-zsh git-Verzeichnis angelegt werden? Bitte einen Benutzernamen nennen! ' + reset)
+        uzsh = os.environ['HOME']
+        #uzsh = input(fcyan + 'In welchem /home-Verzeichnis soll das oh-my-zsh git-Verzeichnis angelegt werden? Bitte einen Benutzernamen nennen! ' + reset)
         os.system('cd && sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"')
         #os.system('git clone git://github.com/robbyrussell/oh-my-zsh.git /home/' + uzsh + '/.oh-my-zsh')
         #os.system('chown -R ' + uzsh + ':users /home/' + uzsh + '/.oh-my-zsh')
@@ -621,7 +639,7 @@ if ghostty in ('J', 'j', ''):
     else:
         print(green + '>>>>> Das Terminal ghostty wird installiert.' + reset)
         time.sleep(3)
-        os.system('sudo dnf copr enable scottames/ghostty')
+        os.system('sudo dnf copr enable -y scottames/ghostty')
         os.system('sudo dnf install -y ghostty')
 
 
@@ -730,13 +748,14 @@ if keepassxc in ('J', 'j', ''):
 # gnome-passwordsafe (secrets) installieren
 if gsafe in ('J', 'j', ''):
     print()
-    fileName=r'/usr/bin/secrets'
+    fileName=r'/var/lib/flatpak/app/org.gnome.World.Secrets'
     if os.path.exists(fileName):
         print(rot + '>>>>> Der Passwortmanager gnome-passwordsafe wurde bereits installiert, mache nichts.' + reset)
     else:
         print(green + '>>>>> Der Passwortmanager gnome-passwordsafe wird installiert.' + reset)
         time.sleep(3)
-        os.system('sudo dnf install -y secrets')
+        print(yellow + 'Sinnvolle Wahl ist:  2) flathub (system)' + reset)
+        os.system('sudo flatpak install -y org.gnome.World.Secrets')
 
 
 
@@ -765,7 +784,8 @@ if sublime in ('J', 'j', ''):
         print(green + '>>>>> Die IDE sublime-text wird installiert.' + reset)
         time.sleep(3)
         os.system('sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg')
-        os.system('sudo dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo')
+        os.system('sudo dnf config-manager addrepo --from-repofile=https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo')
+        #os.system('sudo dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo')
         os.system('sudo dnf install -y sublime-text')
 
 
@@ -780,7 +800,7 @@ if weechat in ('J', 'j', ''):
     else:
         print(green + '>>>>> Der IRC-Client weechat wird installiert.' + reset)
         time.sleep(3)
-        os.system('sudo dnf install -y weechat weechat-scripts')
+        os.system('sudo dnf install -y weechat')
 
 
 
@@ -809,7 +829,8 @@ if vbox in ('J', 'j', ''):
         print(green + '>>>>> Die Virtualisierungsumgebung Virtualbox wird installiert.' + reset)
         time.sleep(3)
         os.system('sudo dnf install -y binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers kernel-devel dkms VirtualBox virtualbox-guest-additions')
-        uvbox = input(yellow + '>>> Welcher Benutzername soll der Gruppe vboxusers hinzugefügt werden? ' + reset)
+        uvbox = getpass.getuser()
+        #uvbox = input(yellow + '>>> Welcher Benutzername soll der Gruppe vboxusers hinzugefügt werden? ' + reset)
         os.system('sudo usermod -aG vboxusers ' + uvbox)
         print(yellow + '>>>>> Jetzt noch ein Reboot durchführen' + reset)
         time.sleep(3)
