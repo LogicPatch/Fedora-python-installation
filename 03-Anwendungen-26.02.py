@@ -470,7 +470,7 @@ if kdenlive in ('J', 'j', ''):
 
 
 
-# Codec-Problem !!!!!
+
 # openshot installieren
 if openshot in ('J', 'j', ''):
     print()
@@ -490,9 +490,9 @@ if wine in ('J', 'j', ''):
     print()
     fileName=r'/usr/bin/wine'
     if os.path.exists(fileName):
-        print(rot + '>>>>> Die Emulatoren wine und gamehub wurden bereits installiert, mache nichts.' + reset)
+        print(rot + '>>>>> Der Emulator wine wurde bereits installiert, mache nichts.' + reset)
     else:
-        print(green + '>>>>> Die Emulatoren wine und gamehub werden installiert.' + reset)
+        print(green + '>>>>> Der Emulator wine wird installiert.' + reset)
         time.sleep(3)
         os.system('sudo dnf group install -y c-development')
         os.system('sudo dnf group install -y development-tools')
