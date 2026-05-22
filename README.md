@@ -1,97 +1,254 @@
-![](logo.png)   
+![](logo.png)
+# Fedora Python Installation
 
-# Fedora 43 customizations via python scripts  
+Automated Fedora Workstation setup and customization using modular Python scripts.
 
-The Python-Scripts are intended to help with various customizations such as adding the most important repositories, various desktop environments or programs.
+---
 
-## Flexibility
-The individual scripts contain several of the most important tools and ask you which ones should be installed. This allows you to simply skip unwanted programs.  
+# 🐧 Overview
 
-## Reproducibility
-If you always install the same tools on multiple PCs, you can ensure that all PCs have been configured and installed identically.  
+This project provides a collection of interactive Python scripts to automate the setup and customization of Fedora Workstation systems.
 
-## How to use  
-After cloning the Git repo, the Python-Scripts are in the directory.
-The scripts themselves can easily be executed using  
-```python3 <respective.script.py>```  
-The individual Python-Scripts serve the following functions  
+It helps quickly configure a fresh Fedora installation with:
 
-### 00-Repositorys.py &emsp; (00-Repository.py) 
+- repositories
+- multimedia codecs
+- GNOME customization
+- Flatpak integration
+- development tools
+- desktop applications
+- gaming tools
+- productivity software
 
-* By query: &emsp; &emsp; &ensp; Add Free-Repository of rpmfusion.org
-* By query: &emsp; &emsp; &ensp; Add Non-Free-Repository of rpmfusion.org
-* By query: &emsp; &emsp; &ensp; Add WineHQ-Repository
-* By query: &emsp; &emsp; &ensp; Add NVidea-Repository
-* Run dnf update after adding each repository
+The project is designed to create a reproducible and modular Fedora desktop environment.
 
-### 01-Grundsystem.py &emsp; (english: 01-Basicsystem.py)
-* By query: &emsp;	Install Basic-Programms (like linux-devel, git, efibootmgr etc.)
-* By query: &emsp; Install codecs for game, image and video formats
-* By query: &emsp; Install Printer-Tools for HP-Printer
-* By query: &emsp; Laptop Usage - Increase battery life with pre-charging and faster boot
-* By query: &emsp; Install an Editor vim, Visual Studio Code or/and emacs
-* By query: &emsp; Basic-tools for WLAN
-* By query: &emsp; Install Support for Grafik (nvidia- or amd-drivers, virtualbox-guest-addition etc. )
+---
 
-### 02-gnome.py
-* By query: &emsp; Additionally, a complete installation of the gnome desktop or a reinstallation after an error
-* By query: &emsp; More applications specifically for gnome
-* By query: &emsp; Install Themes, Icons and Fonts for Gnome
-* By query: &emsp; Choosing a display manager (LightDM, GDM, SDDM or perhaps none)
-* By query: &emsp; Choosing a File-manager (Thunar, Nautilus, Dolphin, cosmic-files or perhaps none)
-* By query: &emsp; Choosing a Calendar-application (gnome-calendar, korganizer, calindori or perhaps none)
-* By query: &emsp; Choosing an Editor (gedit, kate, geany, cosmic-edit, elementary-code or perhaps none)
-* By query: &emsp; Choosing a Image-viewer (eog, gwenview, lximage, sxiv, elementary-photos or perhaps none)
-* By query: &emsp; Choosing a PDF-Reader (papers, okular, cosmic-reader or perhaps none)
-* By query: &emsp; Choosing a Screenshot-tool (flameshot, cosmic-screenshot, scrot or perhaps none)
+# 🎯 Who is this for?
 
-### 03-Anwendungen.py &emsp; (english: 03-Applications.py)
-* By query: &emsp; Webbrowser firefox &emsp; &emsp; (newest Version with Flatpak)
-* By query: &emsp; Webbrowser chromium
-* By query: &emsp; Webbrowser brave &emsp; &emsp; (Flatpak-Version)
-* By query: &emsp; Webbrowser google-chrome &emsp; &emsp; (Flatpak-Version)
-* By query: &emsp; E-Mailclient thunderbird
-* By query: &emsp; Messenger telegram
-* By query: &emsp; Messenger signal &emsp; &emsp; (Flatpak-Version)
-* By query: &emsp; Messenger viber &emsp; &emsp; (Flatpak-Version)
-* By query: &emsp; Messenger & VoIP-App discord
-* By query: &emsp; Video-Conferencing-App Zoom &emsp; &emsp; (Flatpak-Version)
-* By query: &emsp; Video-Player showtime
-* By query: &emsp; Video-Player vlc
-* By query: &emsp; Video-Player celluloid
-* By query: &emsp; Video-Player parole
-* By query: &emsp; Audio-Player rhythmbox
-* By query: &emsp; Audio-Player musicpod
-* By query: &emsp; Audio-file-Converter soundconverter
-* By query: &emsp; Color-Picker eyedropper
-* By query: &emsp; Color-Picker gpick
-* By query: &emsp; Image-Editor gimp
-* By query: &emsp; Image-Editor krita
-* By query: &emsp; Screen-Recorder simplescreenrecorder
-* By query: &emsp; Video-Editor handbrake
-* By query: &emsp; Video-Editor kdenlive
-* By query: &emsp; Video-Editor openshot
-* By query: &emsp; Emulator wine
-* By query: &emsp; Gaming-Platform steam &emsp; &emsp; (Flatpak-Version)
-* By query: &emsp; Gaming-Platform lutris &emsp; &emsp; (Flatpak-Version)
-* By query: &emsp; Remote-Desktop-Software anydesk &emsp; &emsp; (Flatpak-Version)
-* By query: &emsp; Remote-Desktop-Software rustdesk &emsp; &emsp; (Flatpak-Version)
-* By query: &emsp; Remote-Desktop-Software teamviewer &emsp; &emsp; (By Webseite)
-* By query: &emsp; Teminal-File-Manager ranger
-* By query: &emsp; Terminal-File-Manager yazi &emsp; &emsp; (Flatpak-Version)
-* By query: &emsp; Shell zsh
-* By query: &emsp; Shell-Terminal ghostty
-* By query: &emsp; Shell-Terminal kitty
-* By query: &emsp; Shell-Terminal tilix
-* By query: &emsp; Shell-Terminal urxvt
-* By query: &emsp; Systemmonitor conky
-* By query: &emsp; Desktop-Wiki zim
-* By query: &emsp; Notes xpad
-* By query: &emsp; Password-Manager keepassxc
-* By query: &emsp; Password-Manager gnome-passwordsafe
-* By query: &emsp; IDE pycharm &emsp; &emsp; (Flatpak-Version)
-* By query: &emsp; IDE sublime-text &emsp; &emsp; (By external Repository)
-* By query: &emsp; Chat-Client weechat
-* By query: &emsp; Virtualization-Platform KVM
-* By query: &emsp; Virtualization-Platform virtualbox
-* By query: &emsp; Typesetting-System texlive/latex
+- Fedora users reinstalling systems frequently
+- Developers setting up workstations
+- Linux enthusiasts wanting automation
+- Users migrating between Fedora versions
+- Anyone wanting reproducible desktop setups
+
+---
+
+# 💡 Key Features
+
+- ✅ Interactive installation menus
+- ✅ Modular Python scripts
+- ✅ Fedora-focused automation
+- ✅ RPM Fusion integration
+- ✅ Flatpak support
+- ✅ GNOME customization
+- ✅ Multimedia codec installation
+- ✅ Developer environment setup
+- ✅ Gaming & virtualization tools
+- ✅ Reproducible workstation provisioning
+
+---
+
+# 🌿 Branch Strategy
+
+| Branch | Purpose |
+|---|---|
+| `main` | Current Fedora release |
+| `fedora-43` | Archived Fedora 43 version |
+
+
+## Workflow
+
+- `main` always targets the latest Fedora release
+- Older Fedora releases are archived in separate branches
+- Stable release states can additionally be tagged
+
+Example:
+
+```text
+main        -> Fedora 45
+fedora-44   -> Archived Fedora 44 setup
+fedora-43   -> Archived Fedora 43 setup
+```
+
+---
+
+# 🛠️ Script Breakdown
+
+## 00-repositories.py
+
+Repository and package source configuration.
+
+### Features
+
+- RPM Fusion setup
+- Flatpak integration
+- multimedia repositories
+- third-party repositories
+- codec installation
+- Fedora system updates
+
+---
+
+## 01-base-system.py
+
+Base system configuration and essential utilities.
+
+### Features
+
+- terminal utilities
+- SSH tools
+- system monitoring
+- development dependencies
+- driver installation
+- printer support
+- laptop optimizations
+- NVIDIA / AMD / VirtualBox support
+- editors and CLI tools
+
+---
+
+## 02-gnome.py
+
+GNOME desktop customization and configuration.
+
+### Features
+
+- GNOME extensions
+- themes and icons
+- fonts
+- shell customization
+- desktop tweaks
+- display manager selection
+- file manager alternatives
+- screenshot tools
+- productivity utilities
+
+---
+
+## 03-applications.py
+
+Desktop applications and user software.
+
+### Includes
+
+#### 🌐 Browsers
+- Firefox
+- Chromium
+- Brave
+- Google Chrome
+
+#### 💬 Communication
+- Telegram
+- Signal
+- Discord
+- Viber
+- Thunderbird
+
+#### 🎬 Multimedia
+- VLC
+- Celluloid
+- Rhythmbox
+- HandBrake
+- Kdenlive
+
+#### 🎨 Creative Tools
+- GIMP
+- Krita
+- Inkscape
+- Blender
+
+#### 💻 Development
+- VSCode
+- PyCharm
+- Sublime Text
+- Docker tools
+
+#### 🎮 Gaming & Virtualization
+- Steam
+- Lutris
+- Heroic Games Launcher
+- VirtualBox
+- KVM/QEMU
+
+#### 🔐 Utilities
+- KeePassXC
+- GNOME Password Safe
+- backup tools
+- archive utilities
+
+And much more...
+
+---
+
+# ⚙️ Requirements
+
+- Fedora Workstation
+- Python 3
+- sudo privileges
+- internet connection
+
+---
+
+# ▶️ Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/LogicPatch/Fedora-python-installation.git
+cd Fedora-python-installation
+```
+
+Run the scripts in order:
+
+```bash
+python3 00-repositories.py
+python3 01-base-system.py
+python3 02-gnome.py
+python3 03-applications.py
+```
+
+---
+
+# 📋 Recommended Installation Order
+
+```text
+1. 00-repositories.py
+2. 01-base-system.py
+3. 02-gnome.py
+4. 03-applications.py
+```
+
+---
+
+# 🚧 Planned Features
+
+- reusable helper functions
+- automatic Fedora version detection
+- package profiles
+- KDE support
+- backup/import functionality
+- improved logging
+- configuration files
+- non-interactive mode
+
+---
+
+# ⚠️ Disclaimer
+
+These scripts modify:
+
+- repositories
+- installed packages
+- desktop configuration
+- system settings
+
+Always review scripts before executing them.
+
+Use at your own risk.
+
+---
+
+# 📜 License
+
+MIT License
