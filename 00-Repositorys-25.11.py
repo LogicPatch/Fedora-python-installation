@@ -28,9 +28,9 @@ rpmfusionnonfree = input(cyan + 'Soll das Nonfree-Repository von rpmfusion hinzu
 print()
 winehq = input(cyan + 'Soll das offizielle winehq-Repository hinzugefügt werden? (J/n) ' + reset)
 print()
-# Guest Additions nicht notwendig. Fedora Gäste haben bereits die notwendigen Erweiterungen installiert und am laufen!!!!
-print(yellow + '>>>>> Die Unterstützung der Grafikeinheit von NVidia/AMD/Intel/VirtualBox wird hier installiert.' + reset)
-nvidia = input(cyan + 'Soll die Unterstützung von NVidia-Grafikkarten installiert werden? (J/n): ' + reset)
+##### Guest Additions nicht notwendig. Fedora Gäste haben bereits die notwendigen Erweiterungen installiert und am laufen!!!!
+#####print(yellow + '>>>>> Die Unterstützung der Grafikeinheit von NVidia/AMD/Intel/VirtualBox wird hier installiert.' + reset)
+#####nvidia = input(cyan + 'Soll die Unterstützung von NVidia-Grafikkarten installiert werden? (J/n): ' + reset)
 
 
 
@@ -79,14 +79,15 @@ if winehq in ('J', 'j', ''):
 
 
 
+# Repository of nvidia-driver is already installed!
 # NVidia-Repository
-if nvidia in ('J', 'j', ''):
-    print()
-    if os.path.isfile('/etc/yum.repos.d/rpmfusion-nonfree-nvidia-driver.repo'):
-        print(rot + '>>>>> Das NVidia-Repository wurde bereits hinzugefügt, mache nichts.' + reset)
-    else:
-        print(green + '>>>>> Das NVidia-Repo wird dem lokalen Repo hinzugefügt' + reset)
-        time.sleep(3)
-        os.system('sudo dnf install -y fedora-workstation-repositories')
-        os.system('sudo dnf config-manager --set-enabled rpmfusion-nonfree-nvidia-driver')
-        os.system('sudo dnf update -y')
+#if nvidia in ('J', 'j', ''):
+#    print()
+#    if os.path.isfile('/etc/yum.repos.d/rpmfusion-nonfree-nvidia-driver.repo'):
+#        print(rot + '>>>>> Das NVidia-Repository wurde bereits hinzugefügt, mache nichts.' + reset)
+#    else:
+#        print(green + '>>>>> Das NVidia-Repo wird dem lokalen Repo hinzugefügt' + reset)
+#        time.sleep(3)
+#        os.system('sudo dnf install -y fedora-workstation-repositories')
+#        os.system('sudo dnf config-manager --set-enabled rpmfusion-nonfree-nvidia-driver')
+#        os.system('sudo dnf update -y')
