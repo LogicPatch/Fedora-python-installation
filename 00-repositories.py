@@ -26,6 +26,7 @@ rpmfusionfree = input(cyan + 'Soll das Free-Repository von rpmfusion hinzugefüg
 print(yellow + '>>>>> Achtung! Die Installation des Nonfree-Repositorys erfordert zwingend vorher die Installation des Free Repositorys' + reset)
 rpmfusionnonfree = input(cyan + 'Soll das Nonfree-Repository von rpmfusion hinzugefügt werden? (J/n) ' + reset)
 print()
+flatpak = input(cyan + 'Soll über Flatpak Pakete installiert werden können (Y/n)?: ' + reset)
 winehq = input(cyan + 'Soll das offizielle winehq-Repository hinzugefügt werden? (J/n) ' + reset)
 print()
 ##### Guest Additions nicht notwendig. Fedora Gäste haben bereits die notwendigen Erweiterungen installiert und am laufen!!!!
@@ -75,6 +76,17 @@ if winehq in ('J', 'j', ''):
 #        os.system('sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/' + VERSION + '/winehq.repo')
         os.system('sudo dnf config-manager addrepo --from-repofile=https://dl.winehq.org/wine-builds/fedora/$(rpm -E %fedora)/winehq.repo')
         os.system('sudo dnf update -y')
+
+
+
+
+# Flatpak Application is already installed but not configured!
+if flatpak in ('J', 'j', ''):
+    print(green + '>>>>> Es wird alles Bereit gemacht um über Flatpak Pakete installieren zu können.' + reset)
+    time.sleep(3)
+    os.system('flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo')
+    print(yellow + '>>> Es ist sinnvoll jetzt ein reboot auszuführen. Dann können Flatpak-Pakete installiert werden.' + reset)
+    time.sleep(3)
 
 
 
