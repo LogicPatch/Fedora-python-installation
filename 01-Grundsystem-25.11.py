@@ -50,7 +50,7 @@ if basic in ('J', 'j', ''):
     print(green + '>>>>> Grundlegende Programme werden installiert.' + reset)
     time.sleep(3)
     # [ffmpeg, git, gparted, htop, ImageMagick, ncdu, rsync] Schnon vorinstalliert: efibootmgr
-    os.system('sudo dnf install -y dkms efibootmgr git gparted htop hunspell-de ImageMagick kernel-devel ncdu perl python3-pip rsync zvbi')
+    os.system('sudo dnf install -y amd-ucode-firmware dkms efibootmgr git gparted htop hunspell-de ImageMagick kernel-devel ncdu perl python3-pip rsync zvbi')
     # Starten von daemons
     os.system('sudo systemctl enable sshd.service')
     # Nur mit aktiviertem negativo17-Repo:  libdvdcss 
@@ -150,7 +150,7 @@ if tlp in ('J', 'j', ''):
     print()
     print(green + '>>>>> Notebook-Tools werden installiert.' + reset)
     time.sleep(3)
-    os.system('sudo dnf install -y powertop tlp zram zram-generator')      # kein preload verfügbar
+    os.system('sudo dnf install -y powertop zram zram-generator')      # kein preload verfügbar
     #os.system('sudo systemctl enable acpid.service')
 # ausgelassen/unnötig: acpi acpid
 
@@ -182,7 +182,7 @@ if amd in ('J', 'j', ''):
     else:
         print(green + '>>>>> Die Unterstützung von AMD-Grafikeinheiten wird installiert.' + reset)
         time.sleep(3)
-        os.system('sudo dnf install -y am-utils.x86_64 am-utils.i686 amd-gpu-firmware amd-ucode-firmware amdsmi criu-amdgpu-plugin mesa-libGL.x86_64 mesa-libGL.i686 mesa-vdpau-drivers.x86_64 mesa-vdpau-drivers.i686 mesa-vulkan-drivers.x86_64 mesa-vulkan-drivers.i686 ocl-icd.x86_64 ocl-icd.i686 vulkan-loader.x86_64 vulkan-loader.i686 xorg-x11-drv-amdgpu')
+        os.system('sudo dnf install -y amd-gpu-firmware mesa-dri-drivers.x86_64 mesa-dri-drivers.i686 mesa-libGL.x86_64 mesa-libGL.i686 mesa-vulkan-drivers.x86_64 mesa-vulkan-drivers.i686 ocl-icd.x86_64 ocl-icd.i686 vulkan-loader.x86_64 vulkan-loader.i686 xorg-x11-drv-amdgpu')
 # Intel
 if intel in ('J', 'j', ''):
     print()
@@ -193,7 +193,7 @@ if intel in ('J', 'j', ''):
     else:
         print(green + '>>>>> Die Unterstützung von Intel-Grafikeinheiten wird installiert.' + reset)
         time.sleep(3)
-        os.system('sudo dnf install -y intel-media-driver.x86_64 intel-media-driver.i686 intel-opencl intel-vaapi-driver libva-intel-driver.x86_64 libva-intel-driver.i686 libva-intel-hybrid-driver.x86_64 mesa-libGL.x86_64 mesa-libGL.i686 mesa-vdpau-drivers.x86_64 mesa-vdpau-drivers.i686 mesa-vulkan-drivers.x86_64 mesa-vulkan-drivers.i686 ocl-icd.x86_64 ocl-icd.i686 vulkan-loader.x86_64 vulkan-loader.i686 xorg-x11-drv-intel')
+        os.system('sudo dnf install -y intel-gpu-firmware.noarch intel-media-driver.x86_64 intel-media-driver.i686 intel-opencl intel-vaapi-driver libva-utils mesa-dri-drivers.x86_64 mesa-dri-drivers.i686 mesa-libGL.x86_64 mesa-libGL.i686 mesa-vulkan-drivers.x86_64 mesa-vulkan-drivers.i686 ocl-icd.x86_64 ocl-icd.i686 vulkan-loader.x86_64 vulkan-loader.i686')
 #
 # Virtualbox    # Guest Additions nicht notwendig. Fedora Gäste haben bereits die notwendigen Erweiterungen installiert und am laufen!!!!
 # nicht gefunden libva-intel-hybrid-driver.i686
